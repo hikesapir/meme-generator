@@ -11,7 +11,7 @@
 
 <body onload="onInit()">
     <header class="main-header">
-        <div class="header-container main-layout flex">
+        <div class="main-layout header-container  flex">
             <img class="logo" src="imgs/design/LOGO.png" alt="">
             <div class="nav flex">
                 <a href="#">Gallery</a>
@@ -20,7 +20,7 @@
         </div>
     </header>
     <main class="main-content">
-        <section class="homepage hidden">
+        <section class="homepage ">
             <div class="Search-bar homepage flex">
                 <div class="main-layout">
                     <div class="buttom-line-decorition">
@@ -48,18 +48,29 @@
                 </div>
             </div>
         </section>
-        <section class="meme-editor flex">
+        <section class="meme-editor main-layout flex hidden">
             <div class="canvas-container">
-                <canvas id="canvas" height="275.5" width="270.5" style="border: 1px solid black;"></canvas>
+                <canvas id="canvas" height="400" width="400" style="border: 1px solid black;"></canvas>
             </div>
-            <div class="acttions grid">
+            <div class="acttions-layout grid">
                 <input class="text-input" type="text" oninput="onAddTxt(this.value)">
-                <input class="color-input" type="color" oninput="onTxtColor(this.value)" >
-                <button onclick="onAddLine()"><img src="imgs/design/add.png"></button>
-                <button onclick="onSwitchLine()"><img src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-                <button onclick="onSetFontSize(+2)"><img src="imgs/design/increase font - icon.png"></button>
-                <button onclick="onSetFontSize(-2)"><img src="imgs/design/decrease font - icon.png"></button>
-
+                <input class="color color-fill" type="color" oninput="onTxtColor(this.value)">
+                <input class="color color-border" type="color" oninput="">
+                <button class="add-line" onclick="onAddLine()"><img src="imgs/design/add.png"></button>
+                <button class="delete"><img src="imgs/design/trash.png" alt=""></button>
+                <button class="switch" onclick="onSwitchLine()"><img
+                        src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                <button class="increase" onclick="onSetFontSize(+2)"><img src="imgs/design/increase font - icon.png"></button>
+                <button class="decrease" onclick="onSetFontSize(-2)"><img src="imgs/design/decrease font - icon.png"></button>
+                <button class="align-left"><img src="imgs/design/align-to-left.png"></button>
+                <button class="align-center"><img src="imgs/design/center-text-alignment.png"></button>
+                <button class="align-right"><img src="imgs/design/align-to-right.png"></button>
+                <select class="font-family" name="font-family" id="font-family">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <div class="icons">icons</div>
+                <button class="share">share</button>
             </div>
         </section>
     </main>

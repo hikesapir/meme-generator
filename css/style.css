@@ -1,8 +1,6 @@
 /* SETUP */
 @import 'setup/vars.css';
 
-
-
 /* BASE */
 @import 'basic/base.css';
 @import 'basic/layout.css';
@@ -12,3 +10,5 @@
 @import 'components/main-content.css';
 @import 'components/header.css';
 @import 'components/footer.css';
+
+@import 'mq.css';

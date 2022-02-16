@@ -43,6 +43,7 @@
 
 /* about */
 .homepage .about{
+    margin-bottom: 30vh;
     height: 300px;
     background-color: white;
     padding: 40px;
@@ -77,21 +78,24 @@
 
 /* meme-editor */
 .meme-editor{
+    justify-content: center;
+    align-items: center;
     gap: 50px;
     height: 100%;
     padding: 13px 25px;
 }
 
 .meme-editor .text-input{
-    width: 186.5px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
     margin: 0;
     border: 0;
     border-radius: 6px;
+    grid-area: input-txt;
 }
-.meme-editor .color-input{
-    width: 30px;
-    height: 30px;
+.meme-editor .color{
+    width: 100%;
+    height: 100%;
     border: 0;
     border-radius: 6px;
     background: url("imgs/design/paint-board-and-brush.png") no-repeat left center;
@@ -104,9 +108,62 @@
 
 .meme-editor button{
     padding: 5px;
-    height: 30px;
-    width: 30px;
+    height: 100%;
+    width: 100%;
     background-color: white;
     border: 0;
     border-radius: 6px;
 }
+
+.meme-editor .icons{
+    height: 67.5px;
+    width: 186.5px;
+}
+.meme-editor .share{
+    grid-area: share;
+    width: 100%;
+    background-color: var(--clr1);
+}
+
+.meme-editor .switch{
+    grid-area: switch;
+}
+
+.meme-editor .add-line{
+    grid-area: add;
+}
+.meme-editor .delete{
+    grid-area: delete;
+}
+.meme-editor .increase{
+    grid-area: increase;
+}
+.meme-editor .decrease{
+    grid-area: decrease;
+}
+.meme-editor .align-left{
+    grid-area: left;
+}
+.meme-editor .align-center{
+    grid-area: center;
+}
+.meme-editor .align-right{
+    grid-area: right;
+}
+.meme-editor .font-family{
+    grid-area: font-family;
+}
+.meme-editor .color-fill{
+    grid-area: color-fill;
+}
+.meme-editor .color-border{
+    grid-area: color-border;
+}
+.meme-editor .icons{
+    grid-area: icons;
+    width: 100%;
+
+    background-color: white;
+    border-radius: 6px;
+}
+
