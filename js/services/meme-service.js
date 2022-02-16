@@ -8,7 +8,9 @@ var gMeme = {
             txt: 'I sometimes eat Falafel',
             size: 20,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            x:10,
+            y:50
         }
     ]
 }
@@ -35,6 +37,17 @@ function setColor(color) {
 function setFontSize(diff) {
     gMeme.lines[0].size += diff
     console.log(gMeme.lines[0].size);
+}
+
+function createLine() {
+    gMeme.lines.push({
+        txt: 'I sometimes eat Falafel',
+        size: 20,
+        align: 'left',
+        color: 'red',
+        x:50,
+        y:150
+    })
 }
 
 function init() {

@@ -27,10 +27,12 @@ function renderMeme(){
 
 function renderTxtImg(){
     const meme =getMeme();
-    var txt = meme.lines[0].txt
-    gCtx.font = `${meme.lines[0].size}px Georgia`
-    gCtx.fillStyle =meme.lines[0].color
-    gCtx.fillText(txt, 10, 50);
+    const memeLines = meme.lines;
+    memeLines.forEach(memeLine=>{
+        gCtx.font = `${memeLine.size}px Georgia`
+        gCtx.fillStyle =memeLine.color
+        gCtx.fillText(memeLine.txt, memeLine.x, memeLine.y);
+    })
 }
 
 function onTxtColor(val){
@@ -41,5 +43,9 @@ function onTxtColor(val){
 function onSetFontSize(diff){
     setFontSize(diff);
     renderMeme();
+}
 
+function onAddLine(){
+    createLine();
+    renderMeme();
 }
