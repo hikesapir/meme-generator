@@ -1,0 +1,112 @@
+.main-content{
+    background-color: var(--clr3);
+
+}
+
+/* homepage */
+
+.homepage{
+}
+
+/* search bar */
+.homepage .Search-bar{
+    height:51px ;
+    align-items: center;
+    background-color: white;
+}
+
+.homepage .Search-bar .search{
+    width: 150.5px;
+    height: 20px;
+    color: var(--clr2);
+    border: 0;
+}
+.homepage .Search-bar .search-icon{
+    height: 10px;
+}
+
+.homepage .Search-bar .search-submit{
+    background-color: white;
+    border: 0;
+}
+.homepage .Search-bar .buttom-line-decorition{
+    border-bottom: 2px solid black;
+    margin: 5px;
+}
+
+/* gallery container */
+
+.homepage .gallery-container{
+    background-color: var(--clr3);
+    margin: 14px auto;
+}
+
+/* about */
+.homepage .about{
+    height: 300px;
+    background-color: white;
+    padding: 40px;
+}
+
+.homepage .about .circel-img{
+    text-align: center;
+    background-color: red;
+    height: 161px;
+    width: 161px;
+    border-radius: 50%;
+}
+.homepage .about .text{
+    margin: auto;
+    width: 350px;
+}
+
+.homepage .about a{
+    border-radius: 6px;
+    padding: 5px;
+    background-color: var(--clr1);
+    height: 30px;
+    width: 30px;
+}
+
+.homepage .about img{
+    margin: auto;
+    height: 15px;
+    width: 15px;
+}
+
+
+/* meme-editor */
+.meme-editor{
+    gap: 50px;
+    height: 100%;
+    padding: 13px 25px;
+}
+
+.meme-editor .text-input{
+    width: 186.5px;
+    height: 30px;
+    margin: 0;
+    border: 0;
+    border-radius: 6px;
+}
+.meme-editor .color-input{
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 6px;
+    background: url("imgs/design/paint-board-and-brush.png") no-repeat left center;
+}
+
+.meme-editor img{
+    height: 100%;
+    width: 100%;
+}
+
+.meme-editor button{
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: 0;
+    border-radius: 6px;
+}

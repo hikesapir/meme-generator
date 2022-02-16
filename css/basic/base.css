@@ -3,20 +3,15 @@
 }
 
 html{
-    /* color: var(--clr1);
     line-height: 1.25;
-    line-height: 1.5625em;
-    font-family: lato-regular, sans-serif;
-    letter-spacing: calc(1rem*0.001*30); */
 }
 
 body{
-    background-color: blueviolet;
     margin: 0;
 }
 
 .logo{
-    height: 11px;
+    height: 1.5rem;
 }
 
 .img{

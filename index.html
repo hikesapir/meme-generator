@@ -10,35 +10,66 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-layout">
-        <img class="logo" src="imgs/design/LOGO.png" alt="">
-        <a href="#">Gallery</a>
-        <a href="#">About</a>
+    <header class="main-header">
+        <div class="header-container main-layout flex">
+            <img class="logo" src="imgs/design/LOGO.png" alt="">
+            <div class="nav flex">
+                <a href="#">Gallery</a>
+                <a href="#">About</a>
+            </div>
+        </div>
     </header>
-    <main class="main-layout main-content">
+    <main class="main-content">
+        <section class="homepage hidden">
+            <div class="Search-bar homepage flex">
+                <div class="main-layout">
+                    <div class="buttom-line-decorition">
+                        <input class="search" type="text" placeholder="Enter search keyword">
+                        <button class="search-submit"><img class="search-icon" src="imgs/design/search-icon.png"
+                                alt=""></button>
+                    </div>
+                </div>
+            </div>
+            <section class="gallery-container main-layout gallery-container-layout grid"></section>
+            <div class="about">
+                <div class="main-about main-layout flex">
+                    <div class="circel-img">img</div>
+                    <div class="text">
+                        <p>
+                        <h1>Sapir Hiki</h1>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, quia illo voluptatibus
+                        aspernatur blanditiis rerum sapiente totam quod voluptate eveniet consequuntur. Tenetur officia
+                        in voluptas ea deserunt eligendi sunt reiciendis!
+                        </p>
+                        <a href="#"><img src="imgs/design/linkedin-logo.png" alt=""></a>
+                        <a href="#"><img src="imgs/design/facebook-logo.png" alt=""></a>
+                        <a href="#"><img src="imgs/design/github-logo.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="meme-editor flex">
             <div class="canvas-container">
-                <canvas id="canvas" height="275.5" width="270.5" style="border: 1px solid black;" ></canvas>
+                <canvas id="canvas" height="275.5" width="270.5" style="border: 1px solid black;"></canvas>
             </div>
-            <div class="acttions">
+            <div class="acttions grid">
                 <input class="text-input" type="text" oninput="onAddTxt(this.value)">
-                <input type="color" oninput="onTxtColor(this.value)">
-                <button onclick="onAddLine()">+</button>
-                <button onclick="onSwitchLine()">switch</button>
-                <button onclick="onSetFontSize(+2)">A+</button>
-                <button onclick="onSetFontSize(-2)">A-</button>
-        
+                <input class="color-input" type="color" oninput="onTxtColor(this.value)" >
+                <button onclick="onAddLine()"><img src="imgs/design/add.png"></button>
+                <button onclick="onSwitchLine()"><img src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                <button onclick="onSetFontSize(+2)"><img src="imgs/design/increase font - icon.png"></button>
+                <button onclick="onSetFontSize(-2)"><img src="imgs/design/decrease font - icon.png"></button>
+
             </div>
-        </section>
-        <section class="homepage">
-            <div class="Search-Bar"></div>
-            <section class="gallery-container gallery-container-layout grid"></section>
-            <div class="about"></div>
         </section>
     </main>
-    <footer class="main-layout">
-        <img class="logo" src="imgs/design/LOGO.png" alt="">
-        <p>coffeeRight 2022 SAPIR HIKI</p>
+    <footer class="footer">
+        <div class="main-footer main-layout">
+            <div>
+                <img class="logo" src="imgs/design/LOGO.png" alt="">
+            </div>
+            <small>coffeeRight 2022 SAPIR HIKI</small>
+        </div>
     </footer>
 
     <script src="js/services/meme-service.js"></script>

@@ -62,7 +62,7 @@ function init() {
     _createImgs();
 }
 
-function getImg(id) {
+function getImgById(id) {
     return gImgs[id]
 }
 

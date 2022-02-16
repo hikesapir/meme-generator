@@ -1,0 +1,14 @@
+.main-header{
+    height: 33px;
+    background-color: var(--clr1);
+}
+
+.main-header .header-container{
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .nav{
+    gap:10px;
+}
