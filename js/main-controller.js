@@ -1,19 +1,19 @@
 'use strict';
 
-function onInit(){
+function onInit() {
     init();
-    console.log('heyyyy<3');
     renderGallery()
 }
 
-function renderGallery(){
-    const imgs = getImgs()
-    var strHTML =imgs.map(img=>{
-        return`<img class="img" onclick="onSetEditor('${img.url}')" src="imgs/meme-imgs/${img.id}.jpg">`
-    })
-    document.querySelector('.gallery-container').innerHTML=strHTML.join('');
+function onClickImg(imgId) {
+    setMeme(imgId)
+    renderMeme()
 }
 
-function onSetEditor(urlImg){
-    renderEditor(urlImg);
+function renderGallery() {
+    const imgs = getImgs()
+    var strHTML = imgs.map(img => {
+        return `<img class="img" onclick="onClickImg(${img.id})" src="imgs/meme-imgs/${img.id}.jpg">`
+    })
+    document.querySelector('.gallery-container').innerHTML = strHTML.join('');
 }
