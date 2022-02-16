@@ -49,3 +49,6 @@ function onAddLine(){
     createLine();
     renderMeme();
 }
+ function onSwitchLine(){
+    switchLine();
+ }

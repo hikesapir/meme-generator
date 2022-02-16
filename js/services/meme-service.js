@@ -9,8 +9,8 @@ var gMeme = {
             size: 20,
             align: 'left',
             color: 'red',
-            x:10,
-            y:50
+            x: 10,
+            y: 50
         }
     ]
 }
@@ -23,7 +23,8 @@ function getMeme() {
 }
 
 function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt;
+    const memeLine =gMeme.lines[gMeme.selectedLineIdx]
+    memeLine.txt = txt;
 }
 
 function setMeme(imgId) {
@@ -31,11 +32,13 @@ function setMeme(imgId) {
 }
 
 function setColor(color) {
-    gMeme.lines[0].color = color
+    const memeLine =gMeme.lines[gMeme.selectedLineIdx]
+    memeLine.color = color
 }
 
 function setFontSize(diff) {
-    gMeme.lines[0].size += diff
+    const memeLine =gMeme.lines[gMeme.selectedLineIdx]
+    memeLine.size += diff
     console.log(gMeme.lines[0].size);
 }
 
@@ -45,10 +48,15 @@ function createLine() {
         size: 20,
         align: 'left',
         color: 'red',
-        x:50,
-        y:150
+        x: 50,
+        y: 150
     })
 }
+
+function switchLine(){
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx===0)? 1:0;
+}
+
 
 function init() {
     _createImgs();
