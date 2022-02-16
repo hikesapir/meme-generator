@@ -16,7 +16,7 @@ var gImgs;
 var gImgId = 0;
 
 
-function getMeme(){
+function getMeme() {
     return gMeme
 }
 
@@ -24,16 +24,24 @@ function setLineTxt(txt) {
     gMeme.lines[0].txt = txt;
 }
 
-function setMeme(imgId){
-    gMeme.selectedImgId=imgId
+function setMeme(imgId) {
+    gMeme.selectedImgId = imgId
 }
 
+function setColor(color) {
+    gMeme.lines[0].color = color
+}
+
+function setFontSize(diff) {
+    gMeme.lines[0].size += diff
+    console.log(gMeme.lines[0].size);
+}
 
 function init() {
     _createImgs();
 }
 
-function getImg(id){
+function getImg(id) {
     return gImgs[id]
 }
 
