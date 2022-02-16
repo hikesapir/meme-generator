@@ -1,0 +1,11 @@
+.main-layout{
+    max-width: 551px;
+    margin: 0 auto; 
+}
+
+.gallery-container-layout{
+
+    grid-auto-rows: 139px;
+    gap: 10.5px;
+    grid-template-columns: repeat(auto-fill, minmax(176.5px, 1fr));
+}

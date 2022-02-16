@@ -9,7 +9,11 @@ function onInit(){
 function renderGallery(){
     const imgs = getImgs()
     var strHTML =imgs.map(img=>{
-        return`<img  src="imgs/meme-imgs/${img.id}.jpg">`
+        return`<img class="img" onclick="onSetEditor('${img.url}')" src="imgs/meme-imgs/${img.id}.jpg">`
     })
     document.querySelector('.gallery-container').innerHTML=strHTML.join('');
+}
+
+function onSetEditor(urlImg){
+    renderEditor(urlImg);
 }

@@ -40,7 +40,7 @@ function _createImgs() {
 function _createImg(keywords) {
     return {
         id: gImgId,
-        url: `img/${gImgId++}.jpg`,
+        url: `imgs/meme-imgs/${gImgId++}.jpg`,
         keywords
     }
 }

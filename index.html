@@ -10,23 +10,32 @@
 </head>
 
 <body onload="onInit()">
-    <header>
+    <header class="main-layout">
         <img class="logo" src="imgs/design/LOGO.png" alt="">
         <a href="#">Gallery</a>
         <a href="#">About</a>
     </header>
-    <main>
-        <div class="Search-Bar"></div>
-        <div class="gallery-container"></div>
-        <div class="about"></div>
+    <main class="main-layout main-content">
+        <section class="meme-editor">
+            <div class="canvas-container">
+                <canvas id="canvas" height="450" width="450" style="border: 1px solid black;" ></canvas>
+            </div>
+        </section>
+        <section class="homepage">
+            <div class="Search-Bar"></div>
+            <section class="gallery-container gallery-container-layout grid"></section>
+            <div class="about"></div>
+        </section>
     </main>
-    <footer>
+    <footer class="main-layout">
         <img class="logo" src="imgs/design/LOGO.png" alt="">
         <p>coffeeRight 2022 SAPIR HIKI</p>
     </footer>
 
     <script src="js/services/img-service.js"></script>
-    <script src="js/controller.js"></script>
+
+    <script src="js/editor-controller.js"></script>
+    <script src="js/main-controller.js"></script>
 </body>
 
 </html>
