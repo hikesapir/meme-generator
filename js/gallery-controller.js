@@ -2,7 +2,8 @@
 
 function onInit() {
     init();
-    renderGallery()
+    addCanvasResizeListener();
+    renderGallery();
 }
 
 function renderGallery() {

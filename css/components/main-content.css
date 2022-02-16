@@ -98,7 +98,7 @@
     height: 100%;
     border: 0;
     border-radius: 6px;
-    background: url("imgs/design/paint-board-and-brush.png") no-repeat left center;
+    /* background: url("imgs/design/paint-board-and-brush.png") no-repeat left center; */
 }
 
 .meme-editor img{

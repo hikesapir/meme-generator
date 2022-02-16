@@ -4,7 +4,7 @@ var gCanvas = document.querySelector('#canvas');
 var gCtx = gCanvas.getContext('2d');
 
 
-function onAddTxt(elTxt){ 
+function onAddTxt(elTxt) {
     setLineTxt(elTxt);
     renderMeme();
 }
@@ -19,36 +19,58 @@ function drawImgFromlocal(urlImg) {
     }
 }
 
-function renderMeme(){
-    const meme =getMeme();
-    const img = getImg(meme.selectedImgId)
+function renderMeme() {
+    const meme = getMeme();
+    const img = getImgById(meme.selectedImgId)
     drawImgFromlocal(img.url);
 }
 
-function renderTxtImg(){
-    const meme =getMeme();
+function renderTxtImg() {
+    const meme = getMeme();
     const memeLines = meme.lines;
-    memeLines.forEach(memeLine=>{
+    memeLines.forEach(memeLine => {
         gCtx.font = `${memeLine.size}px Georgia`
-        gCtx.fillStyle =memeLine.color
+        gCtx.fillStyle = memeLine.color
         gCtx.fillText(memeLine.txt, memeLine.x, memeLine.y);
     })
 }
 
-function onTxtColor(val){
+function onTxtColor(val) {
     setColor(val);
     renderMeme();
 }
 
-function onSetFontSize(diff){
+function onSetFontSize(diff) {
     setFontSize(diff);
     renderMeme();
 }
 
-function onAddLine(){
+function onAddLine() {
     createLine();
     renderMeme();
 }
- function onSwitchLine(){
+function onSwitchLine() {
     switchLine();
- }
+}
+
+function resizeCanvas() {
+
+    if (window.innerWidth < 290) {
+        gCanvas.height = 200
+        gCanvas.width = 200
+    } else if (window.innerWidth < 830) {
+        gCanvas.height = 270
+        gCanvas.width = 270
+        console.log('elContainer.offsetWidth', window.innerWidth)
+    } else {
+        gCanvas.height = 400;
+        gCanvas.width = 400;
+    }
+}
+
+function addCanvasResizeListener() {
+    window.addEventListener('resize', () => {
+        resizeCanvas(gCanvas)
+        // renderMeme()
+    })
+}
