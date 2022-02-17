@@ -12,3 +12,7 @@ function onRendomMeme(){
     renderMeme()
     toggelHomepage()
 }
+
+function onDisplaySavedGallery(){
+    renderSavedGallery()
+}

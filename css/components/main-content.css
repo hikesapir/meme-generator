@@ -123,50 +123,14 @@
     height: 67.5px;
     width: 186.5px;
 }
-.meme-editor .share{
-    grid-area: share;
+.meme-editor .share, .meme-editor .save{
     width: 100%;
     background-color: var(--clr1);
 }
 
-.meme-editor .switch{
-    grid-area: switch;
-}
 
-.meme-editor .add-line{
-    grid-area: add;
-}
-.meme-editor .delete{
-    grid-area: delete;
-}
-.meme-editor .increase{
-    grid-area: increase;
-}
-.meme-editor .decrease{
-    grid-area: decrease;
-}
-.meme-editor .align-left{
-    grid-area: left;
-}
-.meme-editor .align-center{
-    grid-area: center;
-}
-.meme-editor .align-right{
-    grid-area: right;
-}
-.meme-editor .font-family{
-    grid-area: font-family;
-}
-.meme-editor .color-fill{
-    grid-area: color-fill;
-}
-.meme-editor .color-border{
-    grid-area: color-border;
-}
 .meme-editor .icons{
-    grid-area: icons;
     width: 100%;
-
     background-color: white;
     border-radius: 6px;
 }

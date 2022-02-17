@@ -14,6 +14,7 @@
         <div class="main-layout header-container  flex">
             <img class="logo" src="imgs/design/LOGO.png" alt="">
             <div class="nav flex">
+                <a onclick="onDisplaySavedGallery()">Your memes</a>
                 <a onclick="onRendomMeme()">I'm flexible</a>
                 <a onclick="toggelHomepage()">Gallery</a>
                 <a href="#">About</a>
@@ -72,6 +73,7 @@
                 </select>
                 <div class="icons">icons</div>
                 <button class="share">share</button>
+                <button class="save" onclick="onSaveMeme()">save</button>
             </div>
         </section>
     </main>
@@ -85,6 +87,7 @@
     </footer>
 
     <script src="js/services/util-service.js"></script>
+    <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/editor-controller.js"></script>
     <script src="js/gallery-controller.js"></script>

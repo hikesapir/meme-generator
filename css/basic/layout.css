@@ -7,6 +7,18 @@
     grid-auto-rows: 200px;
 }
 
+.main-header{
+    height: 10vh;
+}
+.main-content{
+    height: 70vh;
+}
+.footer{
+    position: fixed;
+    width: 100%;
+    height: 20vh;
+}
+
 .acttions-layout{
     grid-template-columns: repeat(5 ,40px);
     grid-template-rows: repeat(7 ,40px); 
@@ -19,17 +31,49 @@
     "font-family font-family font-family color-border color-fill"
     "icons icons icons icons icons"
     "icons icons icons icons icons"
-    ". . . share share";
+    "save save . share share";
 }
 
-.main-header{
-    height: 10vh;
+
+.meme-editor .delete{
+    grid-area: delete;
 }
-.main-content{
-    height: 70vh;
+.meme-editor .increase{
+    grid-area: increase;
 }
-.footer{
-    position: fixed;
-    width: 100%;
-    height: 20vh;
+.meme-editor .decrease{
+    grid-area: decrease;
+}
+.meme-editor .switch{
+    grid-area: switch;
+}
+.meme-editor .add-line{
+    grid-area: add;
+}
+.meme-editor .align-left{
+    grid-area: left;
+}
+.meme-editor .align-center{
+    grid-area: center;
+}
+.meme-editor .align-right{
+    grid-area: right;
+}
+.meme-editor .font-family{
+    grid-area: font-family;
+}
+.meme-editor .color-fill{
+    grid-area: color-fill;
+}
+.meme-editor .color-border{
+    grid-area: color-border;
+}
+.meme-editor .icons{
+    grid-area: icons;
+}
+.meme-editor .share{
+    grid-area: share; 
+}
+.meme-editor .save{
+    grid-area: save; 
 }

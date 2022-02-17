@@ -21,7 +21,6 @@ function drawImgFromlocal(urlImg) {
 
 function renderMeme() {
     const meme = getMeme();
-    console.log(meme);
     const img = getImgById(meme.selectedImgId)
     drawImgFromlocal(img.url);
 }
@@ -62,7 +61,6 @@ function resizeCanvas() {
     } else if (window.innerWidth < 830) {
         gCanvas.height = 270
         gCanvas.width = 270
-        console.log('elContainer.offsetWidth', window.innerWidth)
     } else {
         gCanvas.height = 400;
         gCanvas.width = 400;
@@ -74,4 +72,10 @@ function addCanvasResizeListener() {
         resizeCanvas(gCanvas)
         renderMeme()
     })
+}
+
+function onSaveMeme() {
+    console.log('onSaveMeme workes now');
+    const data = gCanvas.toDataURL('image/jpeg/png');
+    saveMeme(data);
 }

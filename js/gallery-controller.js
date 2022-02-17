@@ -20,3 +20,11 @@ function toggelHomepage(){
     document.querySelector('.homepage').classList.toggle('hidden')
     document.querySelector('.meme-editor').classList.toggle('hidden')
 }
+
+function renderSavedGallery() {
+    const imgs = getSavedMemes();
+    var strHTML = imgs.map(img => {
+        return `<img class="img" src="${img}">`
+    })
+    document.querySelector('.gallery-container').innerHTML = strHTML.join('');
+}

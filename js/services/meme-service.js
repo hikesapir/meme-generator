@@ -1,4 +1,6 @@
 'use strict';
+const STORAGE_KEY = 'memesDB';
+
 // var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 var gMeme = {
     selectedImgId: 5,
@@ -15,6 +17,7 @@ var gMeme = {
     ]
 }
 var gImgs;
+var gSavedMemes=[];
 var gImgId = 0;
 
 
@@ -67,7 +70,6 @@ function getImgById(id) {
 
 function getImgs() {
     const imgs = gImgs;
-    console.log('imgs', gImgs);
     return imgs;
 }
 
@@ -129,4 +131,19 @@ function getRendomSentence() {
     ];
     var idx = getRandomInt(0, memesSentences.length - 1)
     return memesSentences[idx]
+}
+
+function getSavedMemes(){
+    return gSavedMemes;
+}
+
+function saveMeme(data){
+    console.log('saveMeme wokes too');
+    gSavedMemes.push(data)
+    _saveToStorge(STORAGE_KEY,gSavedMemes)
+}
+
+
+function _saveToStorge(key,data) {
+    saveToStorage(key, data);
 }
