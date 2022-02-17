@@ -26,10 +26,11 @@
         ". .share share . .";
     }
     .footer{
-        position: relative;
-        width: 100%;
-        height: 10vh;
+        height: 75px;
         padding: 0;
+    }
+    .homepage .about{padding: 5px;
+        margin-bottom: 75px;
     }
     .main-content{
         height: 80vh;

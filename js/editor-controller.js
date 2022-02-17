@@ -65,6 +65,12 @@ function onAddLine() {
     renderTxtInput()
 }
 
+function onRemaveLine(){
+    removeLine();
+    renderMeme();
+    renderTxtInput()
+}
+
 function onSwitchLine() {
     switchLine();
     renderTxtInput()

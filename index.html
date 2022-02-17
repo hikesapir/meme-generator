@@ -18,7 +18,7 @@
                     <a onclick="onDisplaySavedGallery()">Your memes</a>
                     <a onclick="onRendomMeme()">I'm flexible</a>
                     <a onclick="onHomepage()">Gallery</a>
-                    <a href="#about">About</a>
+                    <a href="#about" onclick="toggleMenu()">About</a>
                 </div>
                 <button class="menu-btn" onclick="toggleMenu()" ><img src="imgs/design/menu-hamburger.png"></button>
             </div>
@@ -62,7 +62,7 @@
                 <input class="color color-fill" type="color" oninput="onTxtColor(this.value)">
                 <input class="color color-border" type="color" oninput="onTxtStrokeColor(this.value)">
                 <button class="add-line" onclick="onAddLine()"><img src="imgs/design/add.png"></button>
-                <button class="delete"><img src="imgs/design/trash.png" alt=""></button>
+                <button class="delete" onclick="onRemaveLine()"><img src="imgs/design/trash.png" alt=""></button>
                 <button class="switch" onclick="onSwitchLine()"><img
                         src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
                 <button class="increase" onclick="onSetFontSize(+2)"><img

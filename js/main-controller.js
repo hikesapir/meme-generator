@@ -9,11 +9,13 @@ function onInit() {
 }
 
 function onHomepage() {
+    toggleMenu()
     renderGallery();
     displayHomepage();
 }
 
 function onRendomMeme() {
+    toggleMenu()
     resetMemeData()
     setRendomMeme();
     renderMeme()
@@ -21,6 +23,7 @@ function onRendomMeme() {
 }
 
 function onDisplaySavedGallery() {
+    toggleMenu()
     renderSavedGallery()
     displayHomepage()
 }

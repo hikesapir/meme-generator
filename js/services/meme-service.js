@@ -74,6 +74,11 @@ function createLine() {
     gMeme.selectedLineIdx++
 }
 
+function removeLine(){
+    const idxLine = gMeme.selectedLineIdx;
+    gMeme.lines.splice(idxLine,1)
+}
+
 function switchLine(idx=-1) {
     if (idx===-1) {
         const currIdxLine = gMeme.selectedLineIdx

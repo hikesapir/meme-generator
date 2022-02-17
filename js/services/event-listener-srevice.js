@@ -12,6 +12,7 @@ function onDown(ev) {
     switchLine(idx)
     setLineDrag(true)
     document.querySelector('.canvas-container').style.cursor = 'grabbing'
+    renderTxtInput()
 }
 
 function getEvPos(ev) {
