@@ -11,7 +11,7 @@ function onDown(ev) {
     if (idx < 0) return
     switchLine(idx)
     setLineDrag(true)
-    document.body.style.cursor = 'grabbing'
+    document.querySelector('.canvas-container').style.cursor = 'grabbing'
 }
 
 function getEvPos(ev) {
@@ -63,5 +63,5 @@ function moveLine(dx, dy, line) {
 
 function onUp() {
     setLineDrag(false)
-    document.body.style.cursor = 'grab'
+    document.querySelector('.canvas-container').style.cursor = 'grab'
 }

@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    scroll-behavior: smooth ;
 }
 
 html{
@@ -7,6 +8,7 @@ html{
 }
 
 body{
+    background-color: var(--clr3);
     margin: 0;
 }
 

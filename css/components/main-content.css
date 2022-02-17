@@ -1,7 +1,4 @@
-.main-content{
-    background-color: var(--clr3);
 
-}
 
 /* homepage */
 
@@ -37,7 +34,6 @@
 /* gallery container */
 
 .homepage .gallery-container{
-    background-color: var(--clr3);
     margin: 14px auto;
 }
 
@@ -47,7 +43,7 @@
 
 /* about */
 .homepage .about{
-    margin-bottom: 30vh;
+    margin-bottom: 150px;
     height: 300px;
     background-color: white;
     padding: 40px;

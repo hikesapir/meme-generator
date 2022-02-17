@@ -29,8 +29,11 @@ function renderTxtImg() {
     const meme = getMeme();
     const memeLines = meme.lines;
     memeLines.forEach(memeLine => {
-        gCtx.font = `${memeLine.size}px Georgia`
-        gCtx.fillStyle = memeLine.color
+        gCtx.font = `${memeLine.size}px ${memeLine.font}`;
+        gCtx.fillStyle = memeLine.fillColor;
+        gCtx.strokeStyle = memeLine.strokeColor;
+        gCtx.lineWidth = 2;
+        gCtx.strokeText(memeLine.txt, memeLine.x, memeLine.y);
         gCtx.fillText(memeLine.txt, memeLine.x, memeLine.y);
     })
 }
@@ -40,9 +43,20 @@ function onTxtColor(val) {
     renderMeme();
 }
 
+function onTxtStrokeColor(val){
+    setStrokeColor(val);
+    renderMeme();
+}
+
 function onSetFontSize(diff) {
     setFontSize(diff);
     renderMeme();
+}
+
+function onselectedfont(val){
+    setFont(val);
+    renderMeme();
+
 }
 
 function onAddLine() {

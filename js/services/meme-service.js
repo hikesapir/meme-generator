@@ -10,7 +10,9 @@ var gMeme = {
             txt: 'Enter text',
             size: 20,
             align: 'left',
-            color: 'red',
+            font:'Impact',
+            fillColor: 'white',
+            strokeColor:'black',
             x: 10,
             y: 50,
             isDrag: false
@@ -37,7 +39,17 @@ function setMeme(imgId) {
 
 function setColor(color) {
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
-    memeLine.color = color
+    memeLine.fillColor = color
+}
+
+function setStrokeColor(color){
+    const memeLine = gMeme.lines[gMeme.selectedLineIdx]
+    memeLine.strokeColor = color
+}
+
+function setFont(val){
+    const memeLine = gMeme.lines[gMeme.selectedLineIdx]
+    memeLine.font=val;
 }
 
 function setFontSize(diff) {
@@ -166,4 +178,24 @@ function getCurrLine() {
 
 function getMemeLines(){
    return gMeme.lines
+}
+
+function resetMemeData(){
+    gMeme = {
+        selectedImgId: 5,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: 'Enter text',
+                size: 20,
+                align: 'left',
+                font:'Impact',
+                fillColor: 'white',
+                strokeColor:'black',
+                x: 10,
+                y: 50,
+                isDrag: false
+            }
+        ]
+    }
 }

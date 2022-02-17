@@ -34,6 +34,44 @@
     .main-content{
         height: 80vh;
     }
+    .main-header{
+        padding: 0 25px;
+    }
+    .main-header .nav-container .menu-btn{
+        display: block;
+        height: 30px;
+        width: 30px;
+        color: var(--clr2);
+        background-color: rgba(255, 255, 255, 0);
+        border: 0;
+        cursor: pointer;
+    }
+        
+        .main-header .nav-container .main-nav{
+        display: flex;
+        position: fixed;
+        top: 4em;
+        bottom: 0;
+        left: 0;
+        flex-direction: column;
+        background-color: var(--clr10);
+        height: 100vh;
+        min-width: 100vw;
+        transform: translateY(100%);
+    }
+
+    .main-header .main-nav a{
+        background-color: var(--clr3);
+        width: 100%; 
+        border-bottom:1px solid var(--clr2) ;
+        display: block;
+    } 
+    
+    body.menu-open  .main-header .main-nav{
+        transition: transform .6s, box-shadow .6s;
+        transform: translateY(0);
+        z-index: 1;
+    }
   
 }
 

@@ -9,6 +9,7 @@ function renderGallery() {
 }
 
 function onImgSelect(imgId) {
+    resetMemeData()
     setMeme(imgId)
     renderMeme()
     displayEditorPage()

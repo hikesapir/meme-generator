@@ -14,6 +14,7 @@ function onHomepage() {
 }
 
 function onRendomMeme() {
+    resetMemeData()
     setRendomMeme();
     renderMeme()
     displayEditorPage()
@@ -32,4 +33,8 @@ function displayHomepage() {
 function displayEditorPage() {
     document.querySelector('.homepage').classList.add('hidden')
     document.querySelector('.meme-editor').classList.remove('hidden')
+}
+
+function toggleMenu(){
+    document.body.classList.toggle('menu-open');
 }
