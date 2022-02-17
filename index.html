@@ -11,12 +11,12 @@
 
 <body onload="onInit()">
     <header class="main-header">
-        <div class="main-layout header-container  flex">
+        <div class="main-layout header-container flex">
             <img class="logo" src="imgs/design/LOGO.png" alt="">
             <div class="nav flex">
                 <a onclick="onDisplaySavedGallery()">Your memes</a>
                 <a onclick="onRendomMeme()">I'm flexible</a>
-                <a onclick="toggelHomepage()">Gallery</a>
+                <a onclick="onHomepage()">Gallery</a>
                 <a href="#">About</a>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <canvas id="canvas" height="400" width="400" style="border: 1px solid black;"></canvas>
             </div>
             <div class="acttions-layout grid">
-                <input class="text-input" type="text" oninput="onAddTxt(this.value)">
+                <input class="text-input" type="text" oninput="onChangeTxt(this.value)" value="Enter text">
                 <input class="color color-fill" type="color" oninput="onTxtColor(this.value)">
                 <input class="color color-border" type="color" oninput="">
                 <button class="add-line" onclick="onAddLine()"><img src="imgs/design/add.png"></button>

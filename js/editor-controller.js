@@ -4,7 +4,7 @@ var gCanvas = document.querySelector('#canvas');
 var gCtx = gCanvas.getContext('2d');
 
 
-function onAddTxt(elTxt) {
+function onChangeTxt(elTxt) {
     setLineTxt(elTxt);
     renderMeme();
 }
@@ -48,10 +48,16 @@ function onSetFontSize(diff) {
 function onAddLine() {
     createLine();
     renderMeme();
+    renderTxtInput()
 }
 
 function onSwitchLine() {
     switchLine();
+    renderTxtInput()
+}
+
+function renderTxtInput(){
+    document.querySelector('.text-input').value=getCurrLine().txt
 }
 
 function resizeCanvas() {

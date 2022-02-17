@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 function renderGallery() {
     const imgs = getImgs()
     var strHTML = imgs.map(img => {
@@ -13,18 +11,20 @@ function renderGallery() {
 function onImgSelect(imgId) {
     setMeme(imgId)
     renderMeme()
-    toggelHomepage()
-}
-
-function toggelHomepage(){
-    document.querySelector('.homepage').classList.toggle('hidden')
-    document.querySelector('.meme-editor').classList.toggle('hidden')
+    displayEditorPage()
 }
 
 function renderSavedGallery() {
     const imgs = getSavedMemes();
-    var strHTML = imgs.map(img => {
-        return `<img class="img" src="${img}">`
-    })
-    document.querySelector('.gallery-container').innerHTML = strHTML.join('');
+    console.log(imgs);
+    var strHTML = '';
+    if (!imgs.length) {
+        strHTML = 'No saved meme'
+    }else{
+        strHTML = imgs.map(img => {
+            return `<img class="img" src="${img}">`
+        })
+        strHTML = strHTML.join('');
+    }
+    document.querySelector('.gallery-container').innerHTML = strHTML;
 }

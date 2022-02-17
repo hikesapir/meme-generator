@@ -8,12 +8,28 @@ function onInit() {
     renderGallery();
 }
 
-function onRendomMeme(){
-    setRendomMeme();
-    renderMeme()
-    toggelHomepage()
+function onHomepage() {
+    renderGallery();
+    displayHomepage();
 }
 
-function onDisplaySavedGallery(){
+function onRendomMeme() {
+    setRendomMeme();
+    renderMeme()
+    displayEditorPage()
+}
+
+function onDisplaySavedGallery() {
     renderSavedGallery()
+    displayHomepage()
+}
+
+function displayHomepage() {
+    document.querySelector('.homepage').classList.remove('hidden')
+    document.querySelector('.meme-editor').classList.add('hidden')
+}
+
+function displayEditorPage() {
+    document.querySelector('.homepage').classList.add('hidden')
+    document.querySelector('.meme-editor').classList.remove('hidden')
 }

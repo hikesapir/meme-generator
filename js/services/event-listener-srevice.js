@@ -6,9 +6,10 @@ function onDown(ev) {
     ev.preventDefault()
     const pos = getEvPos(ev)
     console.log(pos);
-    console.log('onDown()');
-    console.log(isLineClicked(pos));
-    if (!isLineClicked(pos)) return
+    console.log(getIdxLineBypos(pos));
+    const idx = getIdxLineBypos(pos)
+    if (idx < 0) return
+    switchLine(idx)
     setLineDrag(true)
     document.body.style.cursor = 'grabbing'
 }
@@ -28,26 +29,24 @@ function getEvPos(ev) {
     return pos
 }
 
-function isLineClicked(clickedPos) {
-
-    const memeLine = gMeme.lines[0];
-    var xStart = memeLine.x;
-    var xEnd = gCtx.measureText(memeLine.txt).width + memeLine.x;
-    var yStart = memeLine.y;
-    var yEnd = memeLine.y - memeLine.size;
-    console.log('sx,sy', xStart, yStart);
-    console.log('ex,ey', xEnd, yEnd);
-    return (clickedPos.x <= xEnd && clickedPos.x >= xStart && clickedPos.y <= yStart && clickedPos.y >= yEnd)
-
+function getIdxLineBypos(clickedPos) {
+    const memeLines = getMemeLines();
+    return memeLines.findIndex(memeLine => {
+        var xStart = memeLine.x;
+        var xEnd = gCtx.measureText(memeLine.txt).width + memeLine.x;
+        var yStart = memeLine.y;
+        var yEnd = memeLine.y - memeLine.size;
+        return (clickedPos.x <= xEnd && clickedPos.x >= xStart && clickedPos.y <= yStart && clickedPos.y >= yEnd)
+    })
 }
 
 function setLineDrag(isDrag) {
-    gMeme.lines[0].isDrag = isDrag
+    const memeLine = getCurrLine()
+    memeLine.isDrag = isDrag
 }
 
 function onMove(ev) {
-    console.log('onMove()');
-    const line = getLineByIdx(0);
+    const line = getCurrLine()
     if (line.isDrag) {
         const pos = getEvPos(ev)
         const dx = pos.x - line.x
@@ -63,7 +62,6 @@ function moveLine(dx, dy, line) {
 }
 
 function onUp() {
-    console.log('onUp()');
     setLineDrag(false)
     document.body.style.cursor = 'grab'
 }

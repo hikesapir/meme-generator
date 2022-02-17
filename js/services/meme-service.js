@@ -7,18 +7,18 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'Enter text',
             size: 20,
             align: 'left',
             color: 'red',
             x: 10,
             y: 50,
-            isDrag:false
+            isDrag: false
         }
     ]
 }
 var gImgs;
-var gSavedMemes=[];
+var gSavedMemes = [];
 var gImgId = 0;
 
 
@@ -47,19 +47,30 @@ function setFontSize(diff) {
 }
 
 function createLine() {
+    const currY = gMeme.lines[gMeme.lines.length - 1].y;
+    var nextY = currY + 50;
+    if (nextY > gCanvas.clientHeight) nextY = 10
     gMeme.lines.push({
         txt: 'I sometimes eat Falafel',
         size: 20,
         align: 'left',
         color: 'red',
         x: 50,
-        y: 150
+        y: nextY,
+        isDrag: false
     })
     gMeme.selectedLineIdx++
 }
 
-function switchLine() {
-    gMeme.selectedLineIdx = (gMeme.selectedLineIdx === 0) ? 1 : 0;
+function switchLine(idx=-1) {
+    if (idx===-1) {
+        const currIdxLine = gMeme.selectedLineIdx
+        const nextIdxLine = (currIdxLine + 1 < gMeme.lines.length) ? currIdxLine + 1 : 0;
+        gMeme.selectedLineIdx = nextIdxLine;
+    }else{
+        gMeme.selectedLineIdx = idx;
+    }
+    console.log('cuurline', gMeme.selectedLineIdx);
 }
 
 function init() {
@@ -110,7 +121,7 @@ function setRendomMeme() {
     const rendomId = getRandomInt(0, gImgs.length - 1)
     console.log(rendomId);
     gMeme.selectedImgId = rendomId
-    gMeme.lines[0].txt= getRendomSentence();
+    gMeme.lines[0].txt = getRendomSentence();
 }
 
 function getRendomSentence() {
@@ -135,20 +146,24 @@ function getRendomSentence() {
     return memesSentences[idx]
 }
 
-function getSavedMemes(){
+function getSavedMemes() {
     return gSavedMemes;
 }
 
-function saveMeme(data){
+function saveMeme(data) {
     console.log('saveMeme wokes too');
     gSavedMemes.push(data)
-    _saveToStorge(STORAGE_KEY,gSavedMemes)
+    _saveToStorge(STORAGE_KEY, gSavedMemes)
 }
 
-function _saveToStorge(key,data) {
+function _saveToStorge(key, data) {
     saveToStorage(key, data);
 }
 
-function getLineByIdx(idx){
-    return gMeme.lines[idx]
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function getMemeLines(){
+   return gMeme.lines
 }
