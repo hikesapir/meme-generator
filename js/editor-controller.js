@@ -49,6 +49,7 @@ function onAddLine() {
     createLine();
     renderMeme();
 }
+
 function onSwitchLine() {
     switchLine();
 }
@@ -78,4 +79,9 @@ function onSaveMeme() {
     console.log('onSaveMeme workes now');
     const data = gCanvas.toDataURL('image/jpeg/png');
     saveMeme(data);
+}
+function onAddSticker(icon){
+    createLine();
+    setLineTxt(icon)
+    renderMeme();
 }

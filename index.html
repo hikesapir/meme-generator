@@ -62,8 +62,10 @@
                 <button class="delete"><img src="imgs/design/trash.png" alt=""></button>
                 <button class="switch" onclick="onSwitchLine()"><img
                         src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-                <button class="increase" onclick="onSetFontSize(+2)"><img src="imgs/design/increase font - icon.png"></button>
-                <button class="decrease" onclick="onSetFontSize(-2)"><img src="imgs/design/decrease font - icon.png"></button>
+                <button class="increase" onclick="onSetFontSize(+2)"><img
+                        src="imgs/design/increase font - icon.png"></button>
+                <button class="decrease" onclick="onSetFontSize(-2)"><img
+                        src="imgs/design/decrease font - icon.png"></button>
                 <button class="align-left"><img src="imgs/design/align-to-left.png"></button>
                 <button class="align-center"><img src="imgs/design/center-text-alignment.png"></button>
                 <button class="align-right"><img src="imgs/design/align-to-right.png"></button>
@@ -71,7 +73,22 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                 </select>
-                <div class="icons">icons</div>
+                <div class="icons">
+                    <ul class="icons-layout clean-list grid">
+                        <li class="icon" onclick="onAddSticker(this.innerText)">💣</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">🤯</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">💖</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">🌭</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">🧁</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">🎊</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">🎈</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">🎁</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">👃</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">👂</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">😃</li>
+                        <li class="icon" onclick="onAddSticker(this.innerText)">😭</li>
+                    </ul>
+                </div>
                 <button class="share">share</button>
                 <button class="save" onclick="onSaveMeme()">save</button>
             </div>

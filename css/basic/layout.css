@@ -34,6 +34,12 @@
     "save save . share share";
 }
 
+.icons-layout{
+    height: inherit;
+    width: inherit;
+    grid-template-columns: repeat(auto-fill ,30px);
+    gap: 10px;
+}
 
 .meme-editor .delete{
     grid-area: delete;

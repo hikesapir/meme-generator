@@ -54,6 +54,7 @@ function createLine() {
         x: 50,
         y: 150
     })
+    gMeme.selectedLineIdx++
 }
 
 function switchLine() {
@@ -142,7 +143,6 @@ function saveMeme(data){
     gSavedMemes.push(data)
     _saveToStorge(STORAGE_KEY,gSavedMemes)
 }
-
 
 function _saveToStorge(key,data) {
     saveToStorage(key, data);
