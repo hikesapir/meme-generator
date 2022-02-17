@@ -12,7 +12,8 @@ var gMeme = {
             align: 'left',
             color: 'red',
             x: 10,
-            y: 50
+            y: 50,
+            isDrag:false
         }
     ]
 }
@@ -146,4 +147,8 @@ function saveMeme(data){
 
 function _saveToStorge(key,data) {
     saveToStorage(key, data);
+}
+
+function getLineByIdx(idx){
+    return gMeme.lines[idx]
 }

@@ -2,6 +2,7 @@
 
 
 function onInit() {
+    addListeners();
     init();
     addCanvasResizeListener();
     renderGallery();
