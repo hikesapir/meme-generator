@@ -41,6 +41,10 @@
     margin: 14px auto;
 }
 
+.homepage .gallery-container img{
+    cursor: pointer;
+}
+
 /* about */
 .homepage .about{
     margin-bottom: 30vh;

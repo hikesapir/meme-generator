@@ -21,6 +21,7 @@ function drawImgFromlocal(urlImg) {
 
 function renderMeme() {
     const meme = getMeme();
+    console.log(meme);
     const img = getImgById(meme.selectedImgId)
     drawImgFromlocal(img.url);
 }
@@ -71,6 +72,6 @@ function resizeCanvas() {
 function addCanvasResizeListener() {
     window.addEventListener('resize', () => {
         resizeCanvas(gCanvas)
-        // renderMeme()
+        renderMeme()
     })
 }

@@ -14,13 +14,14 @@
         <div class="main-layout header-container  flex">
             <img class="logo" src="imgs/design/LOGO.png" alt="">
             <div class="nav flex">
-                <a href="#">Gallery</a>
+                <a onclick="onRendomMeme()">I'm flexible</a>
+                <a onclick="toggelHomepage()">Gallery</a>
                 <a href="#">About</a>
             </div>
         </div>
     </header>
     <main class="main-content">
-        <section class="homepage hidden ">
+        <section class="homepage ">
             <div class="Search-bar homepage flex">
                 <div class="main-layout">
                     <div class="buttom-line-decorition">
@@ -48,7 +49,7 @@
                 </div>
             </div>
         </section>
-        <section class="meme-editor main-layout flex ">
+        <section class="meme-editor main-layout flex hidden">
             <div class="canvas-container">
                 <canvas id="canvas" height="400" width="400" style="border: 1px solid black;"></canvas>
             </div>
@@ -83,10 +84,11 @@
         </div>
     </footer>
 
+    <script src="js/services/util-service.js"></script>
     <script src="js/services/meme-service.js"></script>
-
     <script src="js/editor-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
+    <script src="js/main-controller.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,6 @@
 'use strict';
 
-function onInit() {
-    init();
-    addCanvasResizeListener();
-    renderGallery();
-}
+
 
 function renderGallery() {
     const imgs = getImgs()
@@ -17,4 +13,10 @@ function renderGallery() {
 function onImgSelect(imgId) {
     setMeme(imgId)
     renderMeme()
+    toggelHomepage()
+}
+
+function toggelHomepage(){
+    document.querySelector('.homepage').classList.toggle('hidden')
+    document.querySelector('.meme-editor').classList.toggle('hidden')
 }
