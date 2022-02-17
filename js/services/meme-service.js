@@ -10,9 +10,9 @@ var gMeme = {
             txt: 'Enter text',
             size: 20,
             align: 'left',
-            font:'Impact',
+            font: 'Impact',
             fillColor: 'white',
-            strokeColor:'black',
+            strokeColor: 'black',
             x: 10,
             y: 50,
             isDrag: false
@@ -24,8 +24,76 @@ var gSavedMemes = [];
 var gImgId = 0;
 
 
-function getMeme() {
-    return gMeme
+function init() {
+    _createImgs();
+    _loadSavedMemes();
+}
+
+function _createImgs() {
+    gImgs = [
+        _createImg(['all', 'movie']),
+        _createImg(['all', 'trump', 'funny', 'president']),
+        _createImg(['all', 'animal', 'cute']),
+        _createImg(['all', 'animal', 'cute', 'baby']),
+        _createImg(['all', 'animal']),
+        _createImg(['all', 'baby', 'funny']),
+        _createImg(['all', 'tv show', 'funny']),
+        _createImg(['all', 'cute', 'baby']),
+        _createImg(['all', 'movie', 'funny']),
+        _createImg(['all', 'baby', 'funny', 'cute']),
+        _createImg(['all', 'obama', 'funny', 'president']),
+        _createImg(['all', 'funny']),
+        _createImg(['all', 'tv show']),
+        _createImg(['all', 'movie']),
+        _createImg(['all', 'movie']),
+        _createImg(['all', 'trump', 'funny']),
+        _createImg(['all', 'funny']),
+        _createImg(['all', 'putin', 'president'])
+    ]
+}
+
+function _createImg(keywords) {
+    return {
+        id: gImgId,
+        url: `imgs/meme-imgs/${gImgId++}.jpg`,
+        keywords
+    }
+}
+
+function getImgs(filterBy) {
+    if (filterBy === 'ALL') return gImgs;
+    return gImgs.filter(img =>
+        img.keywords.some(keyword => keyword === filterBy)
+    )
+
+}
+
+function getImgById(id) {
+    return gImgs[id]
+}
+
+function resetMemeData() {
+    gMeme = {
+        selectedImgId: 5,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: 'Enter text',
+                size: 20,
+                align: 'left',
+                font: 'Impact',
+                fillColor: 'white',
+                strokeColor: 'black',
+                x: 10,
+                y: 50,
+                isDrag: false
+            }
+        ]
+    }
+}
+
+function setMemeImg(imgId) {
+    gMeme.selectedImgId = imgId
 }
 
 function setLineTxt(txt) {
@@ -33,29 +101,40 @@ function setLineTxt(txt) {
     memeLine.txt = txt;
 }
 
-function setMeme(imgId) {
-    gMeme.selectedImgId = imgId
-}
-
 function setColor(color) {
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
     memeLine.fillColor = color
 }
 
-function setStrokeColor(color){
+function setStrokeColor(color) {
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
     memeLine.strokeColor = color
 }
 
-function setFont(val){
+function setFont(val) {
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
-    memeLine.font=val;
+    memeLine.font = val;
 }
 
 function setFontSize(diff) {
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
     memeLine.size += diff
-    console.log(gMeme.lines[0].size);
+}
+
+function setSavedMeme(savedMeme) {
+    gMeme = savedMeme;
+}
+
+function getMeme() {
+    return gMeme
+}
+
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function getMemeLines() {
+    return gMeme.lines
 }
 
 function createLine() {
@@ -74,69 +153,23 @@ function createLine() {
     gMeme.selectedLineIdx++
 }
 
-function removeLine(){
+function removeLine() {
     const idxLine = gMeme.selectedLineIdx;
-    gMeme.lines.splice(idxLine,1)
+    gMeme.lines.splice(idxLine, 1)
 }
 
-function switchLine(idx=-1) {
-    if (idx===-1) {
+function switchLine(idx = -1) {
+    if (idx === -1) {
         const currIdxLine = gMeme.selectedLineIdx
         const nextIdxLine = (currIdxLine + 1 < gMeme.lines.length) ? currIdxLine + 1 : 0;
         gMeme.selectedLineIdx = nextIdxLine;
-    }else{
+    } else {
         gMeme.selectedLineIdx = idx;
-    }
-    console.log('cuurline', gMeme.selectedLineIdx);
-}
-
-function init() {
-    _createImgs();
-}
-
-function getImgById(id) {
-    return gImgs[id]
-}
-
-function getImgs() {
-    const imgs = gImgs;
-    return imgs;
-}
-
-function _createImgs() {
-    gImgs = [
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny']),
-        _createImg(['trump', 'funny'])
-    ]
-}
-
-function _createImg(keywords) {
-    return {
-        id: gImgId,
-        url: `imgs/meme-imgs/${gImgId++}.jpg`,
-        keywords
     }
 }
 
 function setRendomMeme() {
     const rendomId = getRandomInt(0, gImgs.length - 1)
-    console.log(rendomId);
     gMeme.selectedImgId = rendomId
     gMeme.lines[0].txt = getRendomSentence();
 }
@@ -167,8 +200,8 @@ function getSavedMemes() {
     return gSavedMemes;
 }
 
-function saveMeme(data) {
-    console.log('saveMeme wokes too');
+function saveMeme(imgurl) {
+    const data = { imgUrl: imgurl, memeData: gMeme }
     gSavedMemes.push(data)
     _saveToStorge(STORAGE_KEY, gSavedMemes)
 }
@@ -177,30 +210,9 @@ function _saveToStorge(key, data) {
     saveToStorage(key, data);
 }
 
-function getCurrLine() {
-    return gMeme.lines[gMeme.selectedLineIdx]
+function _loadSavedMemes() {
+    if (loadFromStorage(STORAGE_KEY)) gSavedMemes = loadFromStorage(STORAGE_KEY);
+    else gSavedMemes = []
 }
 
-function getMemeLines(){
-   return gMeme.lines
-}
 
-function resetMemeData(){
-    gMeme = {
-        selectedImgId: 5,
-        selectedLineIdx: 0,
-        lines: [
-            {
-                txt: 'Enter text',
-                size: 20,
-                align: 'left',
-                font:'Impact',
-                fillColor: 'white',
-                strokeColor:'black',
-                x: 10,
-                y: 50,
-                isDrag: false
-            }
-        ]
-    }
-}

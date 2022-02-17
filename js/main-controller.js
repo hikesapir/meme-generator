@@ -18,7 +18,7 @@ function onRendomMeme() {
     toggleMenu()
     resetMemeData()
     setRendomMeme();
-    renderMeme()
+    renderImgMeme()
     displayEditorPage()
 }
 

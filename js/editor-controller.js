@@ -4,9 +4,11 @@ var gCanvas = document.querySelector('#canvas');
 var gCtx = gCanvas.getContext('2d');
 
 
-function onChangeTxt(elTxt) {
-    setLineTxt(elTxt);
-    renderMeme();
+function renderImgMeme() {
+    const meme = getMeme();
+    console.log(meme);
+    const img = getImgById(meme.selectedImgId)
+    drawImgFromlocal(img.url);
 }
 
 function drawImgFromlocal(urlImg) {
@@ -17,12 +19,6 @@ function drawImgFromlocal(urlImg) {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) //img,x,y,xend,yend
         renderTxtImg();
     }
-}
-
-function renderMeme() {
-    const meme = getMeme();
-    const img = getImgById(meme.selectedImgId)
-    drawImgFromlocal(img.url);
 }
 
 function renderTxtImg() {
@@ -36,44 +32,6 @@ function renderTxtImg() {
         gCtx.strokeText(memeLine.txt, memeLine.x, memeLine.y);
         gCtx.fillText(memeLine.txt, memeLine.x, memeLine.y);
     })
-}
-
-function onTxtColor(val) {
-    setColor(val);
-    renderMeme();
-}
-
-function onTxtStrokeColor(val){
-    setStrokeColor(val);
-    renderMeme();
-}
-
-function onSetFontSize(diff) {
-    setFontSize(diff);
-    renderMeme();
-}
-
-function onselectedfont(val){
-    setFont(val);
-    renderMeme();
-
-}
-
-function onAddLine() {
-    createLine();
-    renderMeme();
-    renderTxtInput()
-}
-
-function onRemaveLine(){
-    removeLine();
-    renderMeme();
-    renderTxtInput()
-}
-
-function onSwitchLine() {
-    switchLine();
-    renderTxtInput()
 }
 
 function renderTxtInput(){
@@ -94,23 +52,66 @@ function resizeCanvas() {
     }
 }
 
-function addCanvasResizeListener() {
-    window.addEventListener('resize', () => {
-        resizeCanvas(gCanvas)
-        renderMeme()
-    })
+function onChangeTxt(elTxt) {
+    setLineTxt(elTxt);
+    renderImgMeme();
 }
 
-function onSaveMeme() {
-    console.log('onSaveMeme workes now');
-    const data = gCanvas.toDataURL('image/jpeg/png');
-    saveMeme(data);
+function onTxtColor(val) {
+    setColor(val);
+    renderImgMeme();
+}
+
+function onTxtStrokeColor(val){
+    setStrokeColor(val);
+    renderImgMeme();
+}
+
+function onSetFontSize(diff) {
+    setFontSize(diff);
+    renderImgMeme();
+}
+
+function onselectedfont(val){
+    setFont(val);
+    renderImgMeme();
+
+}
+
+function onAddLine() {
+    createLine();
+    renderImgMeme();
+    renderTxtInput()
+}
+
+function onRemaveLine(){
+    removeLine();
+    renderImgMeme();
+    renderTxtInput()
+}
+
+function onSwitchLine() {
+    switchLine();
+    renderTxtInput()
 }
 
 function onAddSticker(icon){
     createLine();
     setLineTxt(icon)
-    renderMeme();
+    renderImgMeme();
+}
+
+function onSaveMeme() {
+    console.log('onSaveMeme workes now');
+    const imgurl = gCanvas.toDataURL('image/jpeg/png');
+    saveMeme(imgurl);
+}
+
+function addCanvasResizeListener() {
+    window.addEventListener('resize', () => {
+        resizeCanvas(gCanvas)
+        renderImgMeme()
+    })
 }
 
 function addListeners() {

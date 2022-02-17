@@ -12,7 +12,7 @@
     background-color: white;
 }
 
-.homepage .Search-bar .search{
+.homepage .Search-bar .search-input{
     width: 150.5px;
     height: 20px;
     color: var(--clr2);

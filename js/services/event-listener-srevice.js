@@ -15,6 +15,22 @@ function onDown(ev) {
     renderTxtInput()
 }
 
+function onMove(ev) {
+    const line = getCurrLine()
+    if (line.isDrag) {
+        const pos = getEvPos(ev)
+        const dx = pos.x - line.x
+        const dy = pos.y - line.y
+        moveLine(dx, dy, line)
+        renderImgMeme()
+    }
+}
+
+function onUp() {
+    setLineDrag(false)
+    document.querySelector('.canvas-container').style.cursor = 'grab'
+}
+
 function getEvPos(ev) {
     var pos = {
         x: ev.offsetX,
@@ -46,23 +62,8 @@ function setLineDrag(isDrag) {
     memeLine.isDrag = isDrag
 }
 
-function onMove(ev) {
-    const line = getCurrLine()
-    if (line.isDrag) {
-        const pos = getEvPos(ev)
-        const dx = pos.x - line.x
-        const dy = pos.y - line.y
-        moveLine(dx, dy, line)
-        renderMeme()
-    }
-}
-
 function moveLine(dx, dy, line) {
     line.x += dx
     line.y += dy
 }
 
-function onUp() {
-    setLineDrag(false)
-    document.querySelector('.canvas-container').style.cursor = 'grab'
-}

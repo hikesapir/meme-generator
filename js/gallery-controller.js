@@ -1,7 +1,8 @@
 'use strict';
 
-function renderGallery() {
-    const imgs = getImgs()
+function renderGallery(filterBy='ALL') {
+    const imgs = getImgs(filterBy);
+    console.log(imgs);
     var strHTML = imgs.map(img => {
         return `<img class="img" onclick="onImgSelect(${img.id})" src="imgs/meme-imgs/${img.id}.jpg">`
     })
@@ -10,22 +11,38 @@ function renderGallery() {
 
 function onImgSelect(imgId) {
     resetMemeData()
-    setMeme(imgId)
-    renderMeme()
+    setMemeImg(imgId)
+    renderImgMeme()
     displayEditorPage()
 }
 
 function renderSavedGallery() {
-    const imgs = getSavedMemes();
-    console.log(imgs);
+    const memes = getSavedMemes();
     var strHTML = '';
-    if (!imgs.length) {
+
+    if (!memes.length) {
         strHTML = 'No saved meme'
-    }else{
-        strHTML = imgs.map(img => {
-            return `<img class="img" src="${img}">`
+    } else {
+        var savedMemeIdx = 0;
+        strHTML = memes.map(meme => {
+            // console.log(meme.memeData);
+            return `<img class="img" onclick="onSavedMemeSelect(${savedMemeIdx++})" src="${meme.imgUrl}">`
         })
         strHTML = strHTML.join('');
     }
     document.querySelector('.gallery-container').innerHTML = strHTML;
+}
+
+function onSavedMemeSelect(savedMemeIdx) {
+    const memes = getSavedMemes();
+    const meme = memes[savedMemeIdx].memeData;
+    setSavedMeme(meme);
+    renderImgMeme();
+    displayEditorPage();
+}
+
+function onSearch() {
+    const filterBy = document.querySelector('.search-input').value.toLowerCase()
+    console.log('Filtering By:', filterBy);
+    renderGallery(filterBy)
 }
