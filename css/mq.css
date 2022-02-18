@@ -26,14 +26,15 @@
         "save save . . share share";
     }
     .footer{
-        height: 75px;
+        height: 20%;
         padding: 0;
     }
     .homepage .about{padding: 5px;
         margin-bottom: 75px;
     }
     .main-content{
-        height: 80vh;
+        display: block;
+        height: 70%;
     }
     .main-header{
         padding: 0 25px;
@@ -92,12 +93,19 @@
 
     .meme-editor{
         padding: 10px 0;
+        height: 100%;
+        margin: 0 auto;
+        gap: 20px;
     }
 
     .acttions-layout{
         grid-template-columns: repeat(5 ,30px);
         grid-template-rows: repeat(7 ,30px);
     }
+    .main-content{
+        height: 70%;
+    }
+
 }
 
 /* MEDIUM */
@@ -106,7 +114,12 @@
         max-width: 740px;
         margin: 0 auto;
     }
+    .main-content{
+        display: flex;
+        height: 70%;
+    }
 }
+
 
 /* LARGE */
 @media (min-width: 1040px) {
