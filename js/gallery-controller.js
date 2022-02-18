@@ -7,7 +7,7 @@ function renderGallery(filterBy = 'ALL') {
         strHTML = 'Not find results'
     } else {
         var strHTML = imgs.map(img => {
-            return `<img class="img" onclick="onImgSelect(${img.id})" src="imgs/meme-imgs/${img.id}.jpg">`
+            return `<img class="img" onclick="onImgSelect(${img.id})" src="${img.url}">`
         })
         strHTML = strHTML.join('');
 

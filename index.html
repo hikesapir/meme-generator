@@ -16,7 +16,7 @@
             <div class="nav-container ">
 
                 <ul class="clean-list main-nav flex">
-                    <li onclick="onUploadImg()">Upload image</li>
+                    <li><label for="upload-img">Upload image</label> <input type="file" class="hidden" id="upload-img" name="upload-img" onchange="onImgInput(event)" /></li>
                     <li onclick="onDisplaySavedGallery()">Your memes</li>
                     <li onclick="onRendomMeme()">I'm flexible</li>
                     <li onclick="onHomepage()">Gallery</li>
@@ -63,8 +63,14 @@
             </div>
             <div class="acttions-layout grid">
                 <input class="text-input" type="text" oninput="onChangeTxt(this.value)" value="Enter text">
-                <input class="color color-fill" type="color" oninput="onTxtColor(this.value)">
-                <input class="color color-border" type="color" oninput="onTxtStrokeColor(this.value)">
+               <button class="color-fill">
+                <label for="color-fill"><img src="imgs/design/paint-board-and-brush.png"></label>
+               </button> 
+                <input class="color hidden" id="color-fill" type="color" oninput="onTxtColor(this.value)">
+                <button class="color-border">
+                    <label for="color-border"><img src="imgs/design/text stroke.png"></label>
+                   </button> 
+                <input class="color hidden" id="color-border" type="color" oninput="onTxtStrokeColor(this.value)">
                 <button class="add-line" onclick="onAddLine()"><img src="imgs/design/add.png"></button>
                 <button class="delete" onclick="onRemaveLine()"><img src="imgs/design/trash.png" alt=""></button>
                 <button class="switch" onclick="onSwitchLine()"><img

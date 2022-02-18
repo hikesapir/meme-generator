@@ -1,6 +1,4 @@
 'use strict';
-const STORAGE_KEY = 'memesDB';
-
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,

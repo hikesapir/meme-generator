@@ -1,6 +1,8 @@
 'use strict';
 var gCanvas = document.querySelector('#canvas');
 var gCtx = gCanvas.getContext('2d');
+const STORAGE_KEY_savedMemes = 'memesDB';
+
 
 function setRendomMeme() {
     const rendomId = getRandomInt(0, gImgs.length - 1)
@@ -38,7 +40,7 @@ function saveMeme(shareImgUrl) {
     const imgUrl = getMemeImgUrl();
     const data = { shareImgUrl, imgUrl, memeData: gMeme }
     gSavedMemes.push(data)
-    _saveToStorge(STORAGE_KEY, gSavedMemes)
+    _saveToStorge(STORAGE_KEY_savedMemes, gSavedMemes)
 }
 
 function _saveToStorge(key, data) {
@@ -46,7 +48,7 @@ function _saveToStorge(key, data) {
 }
 
 function _loadSavedMemes() {
-    if (loadFromStorage(STORAGE_KEY)) gSavedMemes = loadFromStorage(STORAGE_KEY);
+    if (loadFromStorage(STORAGE_KEY_savedMemes)) gSavedMemes = loadFromStorage(STORAGE_KEY_savedMemes);
     else gSavedMemes = []
 }
 
@@ -54,7 +56,7 @@ function getMemeImgUrl() {
     return gCanvas.toDataURL("image/jpeg");
 }
 
-
+//next 2 functions for share on facebook
 function uploadImg(imgurl) {
     const imgDataUrl = imgurl;
     const formData = new FormData();
