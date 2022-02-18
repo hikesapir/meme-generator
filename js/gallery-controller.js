@@ -1,8 +1,7 @@
 'use strict';
 
-function renderGallery(filterBy='ALL') {
+function renderGallery(filterBy = 'ALL') {
     const imgs = getImgs(filterBy);
-    console.log(imgs);
     var strHTML = imgs.map(img => {
         return `<img class="img" onclick="onImgSelect(${img.id})" src="imgs/meme-imgs/${img.id}.jpg">`
     })
@@ -10,6 +9,8 @@ function renderGallery(filterBy='ALL') {
 }
 
 function onImgSelect(imgId) {
+    document.querySelector('.share').classList.add('hidden')
+
     resetMemeData()
     setMemeImg(imgId)
     renderImgMeme()
@@ -18,6 +19,7 @@ function onImgSelect(imgId) {
 
 function renderSavedGallery() {
     const memes = getSavedMemes();
+    console.log(memes);
     var strHTML = '';
 
     if (!memes.length) {
@@ -34,9 +36,11 @@ function renderSavedGallery() {
 }
 
 function onSavedMemeSelect(savedMemeIdx) {
+
     const memes = getSavedMemes();
-    const meme = memes[savedMemeIdx].memeData;
-    setSavedMeme(meme);
+    const meme = memes[savedMemeIdx];
+    onSuccess(meme.shareImgUrl);
+    setSavedMeme(meme.memeData);
     renderImgMeme();
     displayEditorPage();
 }

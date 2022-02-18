@@ -36,6 +36,8 @@ function displayHomepage() {
 function displayEditorPage() {
     document.querySelector('.homepage').classList.add('hidden')
     document.querySelector('.meme-editor').classList.remove('hidden')
+    document.querySelector('.share').classList.add('hidden')
+
 }
 
 function toggleMenu(){

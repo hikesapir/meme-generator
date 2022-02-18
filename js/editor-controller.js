@@ -1,9 +1,5 @@
 'use strict';
 
-var gCanvas = document.querySelector('#canvas');
-var gCtx = gCanvas.getContext('2d');
-
-
 function renderImgMeme() {
     const meme = getMeme();
     console.log(meme);
@@ -103,9 +99,11 @@ function onAddSticker(icon){
 
 function onSaveMeme() {
     console.log('onSaveMeme workes now');
-    const imgurl = gCanvas.toDataURL('image/jpeg/png');
-    saveMeme(imgurl);
+    const imgurl = getMemeImgUrl()
+    // saveMeme(imgurl);
+    uploadImg(imgurl);
 }
+
 
 function addCanvasResizeListener() {
     window.addEventListener('resize', () => {
