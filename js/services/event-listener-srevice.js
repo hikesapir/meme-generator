@@ -8,6 +8,8 @@ function onDown(ev) {
     const idx = getIdxLineBypos(pos)
     if (idx < 0) return
     switchLine(idx)
+    renderImgMeme();
+
     setLineDrag(true)
     document.querySelector('.canvas-container').style.cursor = 'grabbing'
     renderTxtInput()
@@ -47,10 +49,10 @@ function getEvPos(ev) {
 function getIdxLineBypos(clickedPos) {
     const memeLines = getMemeLines();
     return memeLines.findIndex(memeLine => {
-        var xStart = memeLine.x;
-        var xEnd = gCtx.measureText(memeLine.txt).width + memeLine.x;
+        var xStart = 2;
+        var xEnd = gCanvas.width-4 ;
         var yStart = memeLine.y;
-        var yEnd = memeLine.y - memeLine.size;
+        var yEnd = memeLine.y - memeLine.size -5;
         return (clickedPos.x <= xEnd && clickedPos.x >= xStart && clickedPos.y <= yStart && clickedPos.y >= yEnd)
     })
 }

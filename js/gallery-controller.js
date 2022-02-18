@@ -33,7 +33,6 @@ function renderSavedGallery() {
     } else {
         var savedMemeIdx = 0;
         strHTML = memes.map(meme => {
-            // console.log(meme.memeData);
             return `<img class="img" onclick="onSavedMemeSelect(${savedMemeIdx++})" src="${meme.imgUrl}">`
         })
         strHTML = strHTML.join('');

@@ -7,12 +7,12 @@ function renderImgMeme() {
 }
 
 function drawImgFromlocal(urlImg) {
-    console.log();
     var img = new Image()
     img.src = urlImg;
     img.onload = () => {
         resizeCanvas(img.width, img.height)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) //img,x,y,xend,yend
+        drawMarkerLine()
         renderTxtImg();
     }
 }
@@ -22,7 +22,7 @@ function resizeCanvas(imgWidth, imgHeight) {
         const size = keepImgProportion(200, 200, imgWidth, imgHeight);
         gCanvas.height = size.height;
         gCanvas.width = size.width;
-        
+
     } else if (window.innerWidth < 830) {
         const size = keepImgProportion(300, 300, imgWidth, imgHeight)
         gCanvas.height = size.height;
@@ -36,7 +36,6 @@ function resizeCanvas(imgWidth, imgHeight) {
 
 function keepImgProportion(maxWidth, maxHeight, imgWidth, imgHeight) {
     const size = {}
-    console.log('imgWidth',imgWidth);
     if (imgWidth < maxWidth && imgHeight < maxHeight) {
         size.height = imgHeight;
         size.width = imgWidth;
@@ -62,14 +61,31 @@ function renderTxtImg() {
         gCtx.fillStyle = memeLine.fillColor;
         gCtx.strokeStyle = memeLine.strokeColor;
         gCtx.lineWidth = 2;
+        gCtx.textAlign = memeLine.align ;
         gCtx.strokeText(memeLine.txt, memeLine.x, memeLine.y);
         gCtx.fillText(memeLine.txt, memeLine.x, memeLine.y);
     })
 }
 
+function onChangeTextAlign(val) {
+    setTextAlignLine(val);
+    renderImgMeme();
+}
+
 function renderTxtInput() {
     document.querySelector('.text-input').value = getCurrLine().txt
 }
+
+function drawMarkerLine() {
+    if (!getMarker()) return;
+    var lineSize = getMarker();
+    gCtx.beginPath();
+    gCtx.lineWidth = '2';
+    gCtx.strokeStyle = '#ff8000';
+    gCtx.rect(lineSize.x, lineSize.y, lineSize.width, lineSize.height);
+    gCtx.closePath()
+    gCtx.stroke();
+  }
 
 function onChangeTxt(elTxt) {
     setLineTxt(elTxt);
@@ -100,18 +116,19 @@ function onselectedfont(val) {
 function onAddLine() {
     createLine();
     renderImgMeme();
-    renderTxtInput()
+    renderTxtInput();
 }
 
 function onRemaveLine() {
     removeLine();
     renderImgMeme();
-    renderTxtInput()
+    // renderTxtInput();
 }
 
 function onSwitchLine() {
     switchLine();
-    renderTxtInput()
+    renderTxtInput();
+    renderImgMeme();
 }
 
 function onAddSticker(icon) {
@@ -149,3 +166,8 @@ function addTouchListeners() {
     gCanvas.addEventListener('touchend', onUp)
 }
 
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.download = 'My-Meme'
+    elLink.href = imgContent
+}

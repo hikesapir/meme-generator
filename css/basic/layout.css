@@ -32,7 +32,7 @@
     "font-family font-family font-family color-border color-fill"
     "icons icons icons icons icons"
     "icons icons icons icons icons"
-    "save save . share share";
+    "save save download share share";
 }
 
 .icons-layout{
@@ -42,6 +42,9 @@
     gap: 10px;
 }
 
+.meme-editor .download{
+    grid-area: download;
+}
 .meme-editor .delete{
     grid-area: delete;
 }

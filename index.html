@@ -14,13 +14,17 @@
         <div class="main-layout header-container flex">
             <img class="logo" src="imgs/design/LOGO.png" alt="">
             <div class="nav-container ">
-                <div class="main-nav flex">
-                    <a onclick="onDisplaySavedGallery()">Your memes</a>
-                    <a onclick="onRendomMeme()">I'm flexible</a>
-                    <a onclick="onHomepage()">Gallery</a>
-                    <a href="#about" onclick="toggleMenu()">About</a>
-                </div>
-                <button class="menu-btn" onclick="toggleMenu()" ><img src="imgs/design/menu-hamburger.png"></button>
+
+                <ul class="clean-list main-nav flex">
+                    <li onclick="onUploadImg()">Upload image</li>
+                    <li onclick="onDisplaySavedGallery()">Your memes</li>
+                    <li onclick="onRendomMeme()">I'm flexible</li>
+                    <li onclick="onHomepage()">Gallery</li>
+                    <li> <a href="#about" onclick="toggleMenu()">About</a>
+                    </li>
+                </ul>
+
+                <button class="menu-btn" onclick="toggleMenu()"><img src="imgs/design/menu-hamburger.png"></button>
             </div>
         </div>
     </header>
@@ -30,14 +34,14 @@
                 <div class="main-layout">
                     <div class="buttom-line-decorition">
                         <input class="search-input" type="text" placeholder="Enter search keyword">
-                        <button class="search-submit" onclick="onSearch()"><img class="search-icon" src="imgs/design/search-icon.png"
-                                alt=""></button>
+                        <button class="search-submit" onclick="onSearch()"><img class="search-icon"
+                                src="imgs/design/search-icon.png" alt=""></button>
                     </div>
                 </div>
             </div>
             <section class="gallery-container main-layout gallery-container-layout grid"></section>
             <div id="about" class="about">
-                <div  class="main-about main-layout flex">
+                <div class="main-about main-layout flex">
                     <div class="circel-img">img</div>
                     <div class="text">
                         <p>
@@ -69,9 +73,9 @@
                         src="imgs/design/increase font - icon.png"></button>
                 <button class="decrease" onclick="onSetFontSize(-2)"><img
                         src="imgs/design/decrease font - icon.png"></button>
-                <button class="align-left"><img src="imgs/design/align-to-left.png"></button>
-                <button class="align-center"><img src="imgs/design/center-text-alignment.png"></button>
-                <button class="align-right"><img src="imgs/design/align-to-right.png"></button>
+                <button class="align-left" onclick="onChangeTextAlign('left')"><img src="imgs/design/align-to-left.png"></button>
+                <button class="align-center" onclick="onChangeTextAlign('center')"><img src="imgs/design/center-text-alignment.png"></button>
+                <button class="align-right" onclick="onChangeTextAlign('right')"><img src="imgs/design/align-to-right.png"></button>
                 <select class="font-family" name="font-family" id="font-family" onchange="onselectedfont(this.value)">
                     <option value="Impact">Impact</option>
                     <option value="Verdana">Verdana</option>
@@ -95,6 +99,7 @@
                 </div>
                 <button id="share-btn" class="share hidden">share</button>
                 <button class="save" onclick="onSaveMeme()">save</button>
+                <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg"><img src="imgs/design/download.png"></a>
             </div>
             <div class="user-msg"></div>
         </section>

@@ -23,7 +23,7 @@
         "font-family font-family font-family left center right"
         "icons icons icons icons icons icons"
         "icons icons icons icons icons icons"
-        "save save . . share share";
+        "save save download share share";
     }
     .footer{
         height: 20%;
@@ -62,7 +62,7 @@
         transform: translateY(100%);
     }
 
-    .main-header .main-nav a{
+    .main-header .main-nav li{
         background-color: var(--clr3);
         width: 100%; 
         border-bottom:1px solid var(--clr2) ;

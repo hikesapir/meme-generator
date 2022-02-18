@@ -55,6 +55,24 @@ function setLineTxt(txt) {
     memeLine.txt = txt;
 }
 
+function setTextAlignLine(textAlign) {
+    const memeLine = gMeme.lines[gMeme.selectedLineIdx]
+    memeLine.align = textAlign;
+    setLinePos(textAlign);
+}
+
+function setLinePos(textAlign) {
+    const memeLine = gMeme.lines[gMeme.selectedLineIdx]
+    if (textAlign === 'center') {
+        memeLine.x = gCanvas.width / 2;
+    } else if (textAlign === 'left') {
+        memeLine.x = 10;
+    } else {
+        memeLine.x = gCanvas.width - 10;
+    }
+
+}
+
 function setColor(color) {
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
     memeLine.fillColor = color
@@ -92,15 +110,19 @@ function getMemeLines() {
 }
 
 function createLine() {
-    const currY = gMeme.lines[gMeme.lines.length - 1].y;
-    var nextY = currY + 50;
-    if (nextY > gCanvas.clientHeight) nextY = 10
+    if (!gMeme.lines.length) {
+        var nextY = 10;
+    } else {
+        const currY = gMeme.lines[gMeme.lines.length - 1].y;
+        var nextY = currY + 50;
+        if (nextY > gCanvas.clientHeight) nextY = 10
+    }
     gMeme.lines.push({
         txt: 'I sometimes eat Falafel',
         size: 20,
         align: 'left',
         color: 'red',
-        x: 50,
+        x: 10,
         y: nextY,
         isDrag: false
     })
@@ -121,3 +143,14 @@ function switchLine(idx = -1) {
         gMeme.selectedLineIdx = idx;
     }
 }
+
+function getMarker() {
+    if (gMeme.selectedLineIdx === 'none' || !gMeme.lines.length) return;
+    var line = getMemeLines()[gMeme.selectedLineIdx];
+    return {
+        x: 2,
+        y: line.y - line.size -1,
+        width:gCanvas.width-4 ,
+        height: line.size + 5,
+    };
+} 
