@@ -23,7 +23,9 @@ function _createImgs() {
         _createImg(['all', 'movie']),
         _createImg(['all', 'trump', 'funny']),
         _createImg(['all', 'funny']),
-        _createImg(['all', 'putin', 'president'])
+        _createImg(['all', 'putin', 'president']),
+        _createImg(['all', 'animal']),
+        _createImg(['all', 'funny']),
     ]
 }
 

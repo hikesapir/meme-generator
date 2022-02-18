@@ -2,10 +2,17 @@
 
 function renderGallery(filterBy = 'ALL') {
     const imgs = getImgs(filterBy);
-    var strHTML = imgs.map(img => {
-        return `<img class="img" onclick="onImgSelect(${img.id})" src="imgs/meme-imgs/${img.id}.jpg">`
-    })
-    document.querySelector('.gallery-container').innerHTML = strHTML.join('');
+    var strHTML = '';
+    if (!imgs.length) {
+        strHTML = 'Not find results'
+    } else {
+        var strHTML = imgs.map(img => {
+            return `<img class="img" onclick="onImgSelect(${img.id})" src="imgs/meme-imgs/${img.id}.jpg">`
+        })
+        strHTML = strHTML.join('');
+
+    }
+    document.querySelector('.gallery-container').innerHTML = strHTML;
 }
 
 function onImgSelect(imgId) {
@@ -19,7 +26,6 @@ function onImgSelect(imgId) {
 
 function renderSavedGallery() {
     const memes = getSavedMemes();
-    console.log(memes);
     var strHTML = '';
 
     if (!memes.length) {
@@ -47,6 +53,5 @@ function onSavedMemeSelect(savedMemeIdx) {
 
 function onSearch() {
     const filterBy = document.querySelector('.search-input').value.toLowerCase()
-    console.log('Filtering By:', filterBy);
     renderGallery(filterBy)
 }

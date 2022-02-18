@@ -2,7 +2,6 @@
 
 function renderImgMeme() {
     const meme = getMeme();
-    console.log(meme);
     const img = getImgById(meme.selectedImgId)
     drawImgFromlocal(img.url);
 }
@@ -12,6 +11,10 @@ function drawImgFromlocal(urlImg) {
     var img = new Image()
     img.src = urlImg;
     img.onload = () => {
+        console.log('imgWidth',img.width);
+        resizeCanvas(img.width, img.height)
+        // gCanvas.width= img.width
+        // gCanvas.height= img.height
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) //img,x,y,xend,yend
         renderTxtImg();
     }
@@ -30,22 +33,64 @@ function renderTxtImg() {
     })
 }
 
-function renderTxtInput(){
-    document.querySelector('.text-input').value=getCurrLine().txt
+function renderTxtInput() {
+    document.querySelector('.text-input').value = getCurrLine().txt
 }
 
-function resizeCanvas() {
+function resizeCanvas(imgWidth, imgHeight) {
+    console.log('imgWidth',imgWidth);
 
-    if (window.innerWidth < 290) {
-        gCanvas.height = 200
-        gCanvas.width = 200
+    if (window.innerWidth < 380) {
+        console.log('small');
+        console.log(imgWidth);
+        const size = keepImgProportion(200, 200, imgWidth, imgHeight);
+        gCanvas.height = size.height;
+        gCanvas.width = size.width;
+        
     } else if (window.innerWidth < 830) {
-        gCanvas.height = 270
-        gCanvas.width = 270
+        console.log('medium');
+        const size = keepImgProportion(300, 300, imgWidth, imgHeight)
+        gCanvas.height = size.height;
+        gCanvas.width = size.width;
+        // gCanvas.height = imgWidth * 0.675
+        // gCanvas.width = imgHeight * 0.675
     } else {
-        gCanvas.height = 400;
-        gCanvas.width = 400;
+        console.log('big');
+        const size = keepImgProportion(500, 500, imgWidth, imgHeight)
+        gCanvas.height = size.height;
+        gCanvas.width = size.width;
+        // const width = (400 * imgWidth) / imgHeight
+        // gCanvas.height = 400;
+        // if (width > 500) {
+        //     gCanvas.width = 500;
+        //     const height = (500 * imgHeight) / imgWidth
+        //     gCanvas.height = height;
+        // } else {
+        //     gCanvas.width = width;
+        // }
     }
+}
+
+function keepImgProportion(maxWidth, maxHeight, imgWidth, imgHeight) {
+    const size = {}
+    console.log('imgWidth',imgWidth);
+    if (imgWidth < maxWidth && imgHeight < maxHeight) {
+        size.height = imgHeight;
+        size.width = imgWidth;
+        console.log(size);
+        return size
+    }
+    const width = (maxHeight * imgWidth) / imgHeight
+    if (width < maxWidth) {
+        size.width = width;
+        size.height = maxHeight;
+    } else {
+        const height = (maxWidth * imgHeight) / imgWidth
+        size.width = maxWidth;
+        size.height = height;
+    }
+    console.log(size);
+    return size
 }
 
 function onChangeTxt(elTxt) {
@@ -58,7 +103,7 @@ function onTxtColor(val) {
     renderImgMeme();
 }
 
-function onTxtStrokeColor(val){
+function onTxtStrokeColor(val) {
     setStrokeColor(val);
     renderImgMeme();
 }
@@ -68,7 +113,7 @@ function onSetFontSize(diff) {
     renderImgMeme();
 }
 
-function onselectedfont(val){
+function onselectedfont(val) {
     setFont(val);
     renderImgMeme();
 
@@ -80,7 +125,7 @@ function onAddLine() {
     renderTxtInput()
 }
 
-function onRemaveLine(){
+function onRemaveLine() {
     removeLine();
     renderImgMeme();
     renderTxtInput()
@@ -91,19 +136,16 @@ function onSwitchLine() {
     renderTxtInput()
 }
 
-function onAddSticker(icon){
+function onAddSticker(icon) {
     createLine();
     setLineTxt(icon)
     renderImgMeme();
 }
 
 function onSaveMeme() {
-    console.log('onSaveMeme workes now');
     const imgurl = getMemeImgUrl()
-    // saveMeme(imgurl);
     uploadImg(imgurl);
 }
-
 
 function addCanvasResizeListener() {
     window.addEventListener('resize', () => {

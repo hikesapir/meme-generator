@@ -38,7 +38,6 @@ function saveMeme(shareImgUrl) {
     const imgUrl = getMemeImgUrl();
     const data = { shareImgUrl, imgUrl, memeData: gMeme }
     gSavedMemes.push(data)
-    console.log(data);
     _saveToStorge(STORAGE_KEY, gSavedMemes)
 }
 
@@ -58,12 +57,8 @@ function getMemeImgUrl() {
 
 function uploadImg(imgurl) {
     const imgDataUrl = imgurl;
-    console.log(imgDataUrl);
-
-    console.log("doUploadImg first?");
     const formData = new FormData();
     formData.append('img', imgDataUrl)
-    console.log(formData);
 
     fetch('//ca-upload.com/here/upload.php', {
         method: 'POST',
@@ -71,7 +66,6 @@ function uploadImg(imgurl) {
     })
         .then(res => res.text())
         .then((url) => {
-            console.log('Got back live url:', url);
             saveMeme(url)
             onSuccess(url)
         })
@@ -82,18 +76,12 @@ function uploadImg(imgurl) {
 
 // A function to be called if request succeeds
 function onSuccess(uploadedImgUrl) {
-    console.log("onSuccess first?");
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-    console.log(encodedUploadedImgUrl);
-    console.log(uploadedImgUrl);
     document.querySelector('.share').innerHTML = `
     <ahref="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">   
     share
-    </a>`
-    console.log( document.querySelector('.share'));
-    
-    document.getElementById('share-btn').classList.remove('hidden')
-    console.log( document.querySelector('.share').classList);
+    </a>`    
+    document.getElementById('share-btn').classList.remove('hidden');
 }
 
 

@@ -5,8 +5,6 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 function onDown(ev) {
     ev.preventDefault()
     const pos = getEvPos(ev)
-    console.log(pos);
-    console.log(getIdxLineBypos(pos));
     const idx = getIdxLineBypos(pos)
     if (idx < 0) return
     switchLine(idx)
