@@ -12,8 +12,8 @@ function drawImgFromlocal(urlImg) {
     img.onload = () => {
         resizeCanvas(img.width, img.height)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) //img,x,y,xend,yend
-        drawMarkerLine()
         renderTxtImg();
+        drawMarkerLine();
     }
 }
 
@@ -61,7 +61,7 @@ function renderTxtImg() {
         gCtx.fillStyle = memeLine.fillColor;
         gCtx.strokeStyle = memeLine.strokeColor;
         gCtx.lineWidth = 2;
-        gCtx.textAlign = memeLine.align ;
+        gCtx.textAlign = memeLine.align;
         gCtx.strokeText(memeLine.txt, memeLine.x, memeLine.y);
         gCtx.fillText(memeLine.txt, memeLine.x, memeLine.y);
     })
@@ -85,7 +85,7 @@ function drawMarkerLine() {
     gCtx.rect(lineSize.x, lineSize.y, lineSize.width, lineSize.height);
     gCtx.closePath()
     gCtx.stroke();
-  }
+}
 
 function onChangeTxt(elTxt) {
     setLineTxt(elTxt);
@@ -115,6 +115,7 @@ function onselectedfont(val) {
 
 function onAddLine() {
     createLine();
+    if (gMeme.selectedLineIdx < 0 || gMeme.lines.length < 0) switchLine(0);
     renderImgMeme();
     renderTxtInput();
 }

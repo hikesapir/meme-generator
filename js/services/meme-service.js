@@ -89,6 +89,7 @@ function setFont(val) {
 }
 
 function setFontSize(diff) {
+    if (gMeme.selectedLineIdx < 0 || gMeme.lines.length < 0) return;
     const memeLine = gMeme.lines[gMeme.selectedLineIdx]
     memeLine.size += diff
 }
@@ -102,6 +103,7 @@ function getMeme() {
 }
 
 function getCurrLine() {
+    if (gMeme.selectedLineIdx < 0) return
     return gMeme.lines[gMeme.selectedLineIdx]
 }
 
@@ -134,8 +136,8 @@ function removeLine() {
     gMeme.lines.splice(idxLine, 1)
 }
 
-function switchLine(idx = -1) {
-    if (idx === -1) {
+function switchLine(idx = -2) {
+    if (idx === -2) {
         const currIdxLine = gMeme.selectedLineIdx
         const nextIdxLine = (currIdxLine + 1 < gMeme.lines.length) ? currIdxLine + 1 : 0;
         gMeme.selectedLineIdx = nextIdxLine;
@@ -145,12 +147,12 @@ function switchLine(idx = -1) {
 }
 
 function getMarker() {
-    if (gMeme.selectedLineIdx === 'none' || !gMeme.lines.length) return;
+    if (gMeme.selectedLineIdx < 0 || gMeme.lines.length < 0) return;
     var line = getMemeLines()[gMeme.selectedLineIdx];
     return {
         x: 2,
-        y: line.y - line.size -1,
-        width:gCanvas.width-4 ,
+        y: line.y - line.size - 1,
+        width: gCanvas.width - 4,
         height: line.size + 5,
     };
 } 
