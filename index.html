@@ -21,7 +21,7 @@
                     <li onclick="onDisplaySavedGallery()">Your memes</li>
                     <li onclick="onRendomMeme()">I'm flexible</li>
                     <li onclick="onHomepage()">Gallery</li>
-                    <li> <a href="#about">About</a>
+                    <li class="about-btn"> <a href="#about">About</a>
                     </li>
                 </ul>
                 <button class="menu-btn" onclick="toggleMenu()"><img src="imgs/design/menu-hamburger.png"></button>
@@ -33,8 +33,9 @@
             <div class="Search-bar">
                 <div class="Search-bar-layout main-layout flex">
                     <div class="buttom-line-decorition flex">
-                        <input class="search-input"  list="categories"  placeholder="Enter search keyword">
+                        <input class="search-input"  list="categories"  placeholder="Enter search keyword" oninput="onSearch()">
                         <datalist id="categories">
+                            <option value="my-images">
                             <option value="movie">
                             <option value="trump">
                             <option value="funny">
@@ -52,22 +53,6 @@
                                 src="imgs/design/search-icon.png" alt=""></button>
                              
                     </div>
-                    <!-- <div class="keywords-list">
-                        <ul class="keywords-list-layout flex clean-list">
-                            <li>movie</li>
-                            <li>trump</li>
-                            <li>funny</li>
-                            <li>animal</li>
-                            <li>cute</li>
-                            <li>freedom</li>
-                            <li>tv</li>
-                            <li>obama</li>
-                            <li>baby</li>
-                            <li>dog</li>
-                            <li>putin</li>
-                            <li>president</li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
             <section class="gallery-container main-layout gallery-container-layout grid">

@@ -84,7 +84,7 @@ function loadImageFromInput(ev) {
         // img.onload = onImageReady.bind(null, img)
         img.src = event.target.result
         console.log(img.src);
-        addImage('my images', img.src)
+        addImage('my-images', img.src)
         var imgId = gImgs.length-1
         onImgSelect(imgId);
 

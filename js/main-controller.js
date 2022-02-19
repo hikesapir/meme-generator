@@ -13,7 +13,6 @@ function onHomepage() {
 }
 
 function onRendomMeme() {
-    toggleMenu()
     resetMemeData()
     setRendomMeme();
     renderImgMeme()
@@ -21,17 +20,18 @@ function onRendomMeme() {
 }
 
 function onDisplaySavedGallery() {
-    toggleMenu()
     renderSavedGallery()
     displayHomepage()
 }
 
 function displayHomepage() {
+    displayAboutBtn()
     document.querySelector('.homepage').classList.remove('hidden')
     document.querySelector('.meme-editor').classList.add('hidden')
 }
 
 function displayEditorPage() {
+    hiddenAboutBtn()
     document.querySelector('.homepage').classList.add('hidden')
     document.querySelector('.meme-editor').classList.remove('hidden')
     document.querySelector('.share').classList.add('hidden')
@@ -45,5 +45,12 @@ function toggleMenu() {
 function onImgInput(ev) {
     loadImageFromInput(ev)
 
+}
+
+function hiddenAboutBtn() {
+    document.querySelector('.about-btn').style.display = 'none'
+}
+function displayAboutBtn() {
+    document.querySelector('.about-btn').style.display = 'block'
 }
 

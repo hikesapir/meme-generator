@@ -142,6 +142,7 @@ function onAddSticker(icon) {
 function onSaveMeme() {
     const imgurl = getMemeImgUrl()
     uploadImg(imgurl);
+    flashMsg('Meme saved')
 }
 
 function downloadImg(elLink) {

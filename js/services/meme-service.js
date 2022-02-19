@@ -118,10 +118,12 @@ function createLine() {
         if (nextY > gCanvas.clientHeight) nextY = 10
     }
     gMeme.lines.push({
-        txt: 'I sometimes eat Falafel',
+        txt: 'Enter text',
         size: 20,
         align: 'left',
-        color: 'red',
+        font: 'Impact',
+        fillColor: 'white',
+        strokeColor: 'black',
         x: 10,
         y: nextY,
         isDrag: false
