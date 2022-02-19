@@ -78,12 +78,13 @@ function uploadImg(imgurl) {
 
 // A function to be called if request succeeds
 function onSuccess(uploadedImgUrl) {
+    console.log('workinggg');
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
     document.querySelector('.share').innerHTML = `
     <ahref="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">   
     share
     </a>`    
-    document.getElementById('share-btn').classList.remove('hidden');
+    document.getElementById('share-btn').style.display='block'
 }
 
 

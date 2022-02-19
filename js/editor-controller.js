@@ -28,7 +28,7 @@ function resizeCanvas(imgWidth, imgHeight) {
         gCanvas.height = size.height;
         gCanvas.width = size.width;
     } else {
-        const size = keepImgProportion(500, 500, imgWidth, imgHeight)
+        const size = keepImgProportion(400, 400, imgWidth, imgHeight)
         gCanvas.height = size.height;
         gCanvas.width = size.width;
     }
@@ -134,7 +134,8 @@ function onSwitchLine() {
 
 function onAddSticker(icon) {
     createLine();
-    setLineTxt(icon)
+    setLineTxt(icon);
+    renderTxtInput();
     renderImgMeme();
 }
 
@@ -143,32 +144,9 @@ function onSaveMeme() {
     uploadImg(imgurl);
 }
 
-function addCanvasResizeListener() {
-    window.addEventListener('resize', () => {
-        resizeCanvas(gCanvas)
-        renderImgMeme()
-    })
-}
-
-function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
-}
-
-function addMouseListeners() {
-    gCanvas.addEventListener('mousemove', onMove);
-    gCanvas.addEventListener('mousedown', onDown);
-    gCanvas.addEventListener('mouseup', onUp);
-}
-
-function addTouchListeners() {
-    gCanvas.addEventListener('touchmove', onMove)
-    gCanvas.addEventListener('touchstart', onDown)
-    gCanvas.addEventListener('touchend', onUp)
-}
-
 function downloadImg(elLink) {
     var imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.download = 'My-Meme'
     elLink.href = imgContent
 }
+

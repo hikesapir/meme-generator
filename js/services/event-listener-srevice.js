@@ -9,6 +9,7 @@ function onDown(ev) {
     switchLine(idx)
     renderImgMeme();
     if (idx < 0) return
+    addKeydownListeners()
     console.log();
     setLineDrag(true)
     document.querySelector('.canvas-container').style.cursor = 'grabbing'
@@ -68,3 +69,52 @@ function moveLine(dx, dy, line) {
     line.y += dy
 }
 
+function addResizeListener() {
+    window.addEventListener('resize', () => {
+        resizeCanvas(gCanvas)
+        renderImgMeme()
+    })
+}
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    addResizeListener()
+}
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousemove', onMove);
+    gCanvas.addEventListener('mousedown', onDown);
+    gCanvas.addEventListener('mouseup', onUp);
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchmove', onMove)
+    gCanvas.addEventListener('touchstart', onDown)
+    gCanvas.addEventListener('touchend', onUp)
+}
+
+function addKeydownListeners() {
+    document.addEventListener('keydown', onKeydown, false)
+}
+
+function onKeydown(ev) {
+    ev.preventDefault()
+
+    // var recentWord=[]
+    // var
+    const lineText = getCurrLine().txt;
+
+    if (ev.keyCode === 8) {
+        var txt = lineText.slice(0, -1)
+        onChangeTxt(txt);
+        renderTxtInput();
+    } else if ((ev.keyCode >= 48 && ev.keyCode <= 90)
+       || (ev.keyCode >= 96 && ev.keyCode <= 111)
+       || (ev.keyCode >= 187 && ev.keyCode <= 222)) {
+        var txt = lineText + ev.key
+        onChangeTxt(txt);
+        renderTxtInput();
+    }
+
+}

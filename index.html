@@ -61,7 +61,8 @@
             <div class="canvas-container">
                 <canvas id="canvas" height="400" width="400" style="border: 1px solid black;"></canvas>
             </div>
-            <div class="acttions-layout grid">
+            <div class="grid-container">
+            <div class="actions-layout grid">
                 <input class="text-input" type="text" oninput="onChangeTxt(this.value)" value="Enter text">
                <button class="color-fill">
                 <label for="color-fill"><img src="imgs/design/paint-board-and-brush.png"></label>
@@ -103,9 +104,10 @@
                         <li class="icon" onclick="onAddSticker(this.innerText)">😭</li>
                     </ul>
                 </div>
-                <button id="share-btn" class="share hidden">share</button>
+                <button id="share-btn" class="share " hidden>share</button>
                 <button class="save" onclick="onSaveMeme()">save</button>
                 <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg"><img src="imgs/design/download.png"></a>
+            </div>
             </div>
             <div class="user-msg"></div>
         </section>

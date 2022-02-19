@@ -16,7 +16,8 @@ function renderGallery(filterBy = 'ALL') {
 }
 
 function onImgSelect(imgId) {
-    document.querySelector('.share').classList.add('hidden')
+    // document.querySelector('.share').classList.add('hidden')
+    document.getElementById('share-btn').style.display='none'
 
     resetMemeData()
     setMemeImg(imgId)
