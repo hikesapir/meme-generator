@@ -13,7 +13,7 @@
     <div class="main-screen" onclick="toggleMenu()"></div>
     <header class="main-header">
         <div class="header-container header-layout main-layout flex">
-            <img class="logo" src="imgs/design/LOGO.png" alt="">
+            <img class="logo" onclick="onHomepage()" src="imgs/design/LOGO.png" alt="">
             <div class="nav-container ">
                 <ul class="clean-list main-nav flex">
                     <li><label for="upload-img">Upload image</label> <input type="file" class="hidden" id="upload-img"
@@ -33,9 +33,24 @@
             <div class="Search-bar">
                 <div class="Search-bar-layout main-layout flex">
                     <div class="buttom-line-decorition flex">
-                        <input class="search-input" type="text" placeholder="Enter search keyword">
+                        <input class="search-input"  list="categories"  placeholder="Enter search keyword">
+                        <datalist id="categories">
+                            <option value="movie">
+                            <option value="trump">
+                            <option value="funny">
+                            <option value="animal">
+                            <option value="cute">
+                            <option value="freedom">
+                            <option value="tv">
+                            <option value="obama">
+                            <option value="baby">
+                            <option value="dog">
+                            <option value="putin">
+                            <option value="president">
+                          </datalist>
                         <button class="search-submit" onclick="onSearch()"><img class="search-icon"
                                 src="imgs/design/search-icon.png" alt=""></button>
+                             
                     </div>
                     <!-- <div class="keywords-list">
                         <ul class="keywords-list-layout flex clean-list">

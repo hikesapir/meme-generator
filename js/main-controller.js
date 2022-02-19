@@ -8,7 +8,6 @@ function onInit() {
 }
 
 function onHomepage() {
-    toggleMenu()
     renderGallery();
     displayHomepage();
 }

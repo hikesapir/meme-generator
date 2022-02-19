@@ -37,4 +37,7 @@
 .main-header .nav-container .menu-btn{
     display: none;
 }
+.main-header .logo{
+    cursor: pointer;
+}
 
