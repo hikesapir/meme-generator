@@ -1,12 +1,6 @@
 .main-header{
-    /* height: 33px; */
+    height: 75px;
     background-color: var(--clr1);
-}
-
-.main-header .header-container{
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .main-header .nav-container li{
@@ -39,6 +33,7 @@
 .main-header .nav-container img{
     height: 30px;
 }
+
 .main-header .nav-container .menu-btn{
     display: none;
 }

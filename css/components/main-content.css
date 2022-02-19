@@ -1,51 +1,64 @@
-
-
 /* homepage */
-
 .homepage{
     width: 100%;
 }
 
+/* main content */
+.main-content{
+    background-color: var(--clr3);
+}
+
 /* search bar */
 .homepage .Search-bar{
-    height:51px ;
+    height:50px ;
     align-items: center;
     background-color: white;
 }
 
 .homepage .Search-bar .search-input{
-    width: 150.5px;
-    height: 20px;
+    width: 150x;
+    height: 100%;
     color: var(--clr2);
     border: 0;
-}
-.homepage .Search-bar .search-icon{
-    height: 10px;
 }
 
 .homepage .Search-bar .search-submit{
     background-color: white;
     border: 0;
+    padding: 10px;
 }
+
 .homepage .Search-bar .buttom-line-decorition{
     border-bottom: 2px solid black;
     margin: 5px;
 }
+/* 
+.homepage .Search-bar .keywords-list{
+    width: 100%;
+    padding-left: 25px;
+} */
+
+/* .homepage .Search-bar .keywords-list li{
+    text-align: center;
+} */
 
 /* gallery container */
 
 .homepage .gallery-container{
-    margin: 14px auto;
+    margin: 15px auto;
 }
 
 .homepage .gallery-container img{
+    border-radius: 6px;
     cursor: pointer;
-}
+} 
 
+.homepage .gallery-container img:hover{
+    box-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 166, 0), 0 0 5px rgb(219, 107, 3);
+}
 /* about */
+
 .homepage .about{
-    margin-bottom: 150px;
-    height: 300px;
     background-color: white;
     padding: 40px;
 }
@@ -53,10 +66,11 @@
 .homepage .about .circel-img{
     text-align: center;
     background-color: red;
-    height: 161px;
-    width: 161px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
 }
+
 .homepage .about .text{
     margin: auto;
     width: 350px;
@@ -78,13 +92,6 @@
 
 
 /* meme-editor */
-.meme-editor{
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    /* height: 100%; */
-    padding: 13px 20px;
-}
 
 .meme-editor .text-input{
     width: 100%;
@@ -93,18 +100,6 @@
     border: 0;
     border-radius: 6px;
     grid-area: input-txt;
-}
-.meme-editor .color{
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 6px;
-    /* background: url("imgs/design/paint-board-and-brush.png") no-repeat left center; */
-}
-
-.meme-editor img{
-    height: 100%;
-    width: 100%;
 }
 
 .meme-editor button{
@@ -117,17 +112,13 @@
     cursor: pointer;
 }
 
-.meme-editor .icons{
-    height: 67.5px;
-    width: 186.5px;
-}
 .meme-editor .share, .meme-editor .save{
     width: 100%;
     background-color: var(--clr1);
 }
 
-
 .meme-editor .icons{
+    height: 67.5px;
     width: 100%;
     background-color: white;
     border-radius: 6px;

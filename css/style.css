@@ -7,8 +7,9 @@
 @import 'basic/helpers.css';
 
 /* components */
-@import 'components/main-content.css';
 @import 'components/header.css';
+@import 'components/main-content.css';
 @import 'components/footer.css';
+@import 'components/screen.css';
 
 @import 'mq.css';

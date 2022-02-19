@@ -17,13 +17,13 @@ function _createImgs() {
             _createImg(['all', 'animal', 'cute', 'baby', 'dog']),
             _createImg(['all', 'animal', 'cat']),
             _createImg(['all', 'baby', 'funny']),
-            _createImg(['all', 'tv show', 'funny']),
+            _createImg(['all', 'tv', 'funny']),
             _createImg(['all', 'cute', 'baby']),
             _createImg(['all', 'movie']),
             _createImg(['all', 'baby', 'funny', 'cute']),
             _createImg(['all', 'obama', 'funny', 'president']),
             _createImg(['all', 'funny']),
-            _createImg(['all', 'tv show']),
+            _createImg(['all', 'tv']),
             _createImg(['all', 'movie']),
             _createImg(['all', 'movie']),
             _createImg(['all', 'movie']),
@@ -35,7 +35,7 @@ function _createImgs() {
             _createImg(['all', 'freedom']),
             _createImg(['all', 'movie']),
             _createImg(['all', 'trump', 'funny']),
-            _createImg(['all', 'tv show', 'funny']),
+            _createImg(['all', 'tv', 'funny']),
         ]
     }
 

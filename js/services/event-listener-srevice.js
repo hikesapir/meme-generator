@@ -100,9 +100,6 @@ function addKeydownListeners() {
 
 function onKeydown(ev) {
     ev.preventDefault()
-
-    // var recentWord=[]
-    // var
     const lineText = getCurrLine().txt;
 
     if (ev.keyCode === 8) {

@@ -1,0 +1,13 @@
+.main-screen{
+    position: fixed;
+    inset: 0;
+    cursor: pointer;
+    background-color: rgba(43, 41, 41, 0.89);
+    display: none;
+    margin-top: 75px;
+    z-index: 1;
+}
+
+body.menu-open .main-screen{
+    display: block;
+}

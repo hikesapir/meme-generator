@@ -10,36 +10,53 @@
 </head>
 
 <body onload="onInit()">
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header class="main-header">
-        <div class="main-layout header-container flex">
+        <div class="header-container header-layout main-layout flex">
             <img class="logo" src="imgs/design/LOGO.png" alt="">
             <div class="nav-container ">
-
                 <ul class="clean-list main-nav flex">
-                    <li><label for="upload-img">Upload image</label> <input type="file" class="hidden" id="upload-img" name="upload-img" onchange="onImgInput(event)" /></li>
+                    <li><label for="upload-img">Upload image</label> <input type="file" class="hidden" id="upload-img"
+                            name="upload-img" onchange="onImgInput(event)" /></li>
                     <li onclick="onDisplaySavedGallery()">Your memes</li>
                     <li onclick="onRendomMeme()">I'm flexible</li>
                     <li onclick="onHomepage()">Gallery</li>
-                    <li> <a href="#about" onclick="toggleMenu()">About</a>
+                    <li> <a href="#about">About</a>
                     </li>
                 </ul>
-
                 <button class="menu-btn" onclick="toggleMenu()"><img src="imgs/design/menu-hamburger.png"></button>
             </div>
         </div>
     </header>
     <main class="main-content">
         <section class="homepage ">
-            <div class="Search-bar homepage flex">
-                <div class="main-layout">
-                    <div class="buttom-line-decorition">
+            <div class="Search-bar">
+                <div class="Search-bar-layout main-layout flex">
+                    <div class="buttom-line-decorition flex">
                         <input class="search-input" type="text" placeholder="Enter search keyword">
                         <button class="search-submit" onclick="onSearch()"><img class="search-icon"
                                 src="imgs/design/search-icon.png" alt=""></button>
                     </div>
+                    <!-- <div class="keywords-list">
+                        <ul class="keywords-list-layout flex clean-list">
+                            <li>movie</li>
+                            <li>trump</li>
+                            <li>funny</li>
+                            <li>animal</li>
+                            <li>cute</li>
+                            <li>freedom</li>
+                            <li>tv</li>
+                            <li>obama</li>
+                            <li>baby</li>
+                            <li>dog</li>
+                            <li>putin</li>
+                            <li>president</li>
+                        </ul>
+                    </div> -->
                 </div>
             </div>
-            <section class="gallery-container main-layout gallery-container-layout grid"></section>
+            <section class="gallery-container main-layout gallery-container-layout grid">
+            </section>
             <div id="about" class="about">
                 <div class="main-about main-layout flex">
                     <div class="circel-img">img</div>
@@ -47,17 +64,16 @@
                         <p>
                         <h1>Sapir Hiki</h1>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, quia illo voluptatibus
-                        aspernatur blanditiis rerum sapiente totam quod voluptate eveniet consequuntur. Tenetur officia
-                        in voluptas ea deserunt eligendi sunt reiciendis!
+                        aspernatur blanditiis rerum sapiente totam quod!
                         </p>
-                        <a href="#"><img src="imgs/design/linkedin-logo.png" alt=""></a>
-                        <a href="#"><img src="imgs/design/facebook-logo.png" alt=""></a>
-                        <a href="#"><img src="imgs/design/github-logo.png" alt=""></a>
+                        <a href="#"><img src="imgs/design/linkedin-logo.png" ></a>
+                        <a href="#"><img src="imgs/design/facebook-logo.png" ></a>
+                        <a href="#"><img src="imgs/design/github-logo.png" ></a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="meme-editor main-layout flex hidden">
+        <section class="meme-editor meme-editor-layout main-layout flex hidden">
             <div class="canvas-container">
                 <canvas id="canvas" height="400" width="400" style="border: 1px solid black;"></canvas>
             </div>
@@ -113,7 +129,7 @@
         </section>
     </main>
     <footer class="footer">
-        <div class="main-footer main-layout">
+        <div class="main-footer-layout main-layout">
             <div>
                 <img class="logo" src="imgs/design/LOGO.png" alt="">
             </div>
