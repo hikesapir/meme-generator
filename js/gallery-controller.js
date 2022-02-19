@@ -4,10 +4,10 @@ function renderGallery(filterBy = 'ALL') {
     const imgs = getImgs(filterBy);
     var strHTML = '';
     if (!imgs.length) {
-        strHTML = 'Not find results'
+        strHTML = 'Not find results';
     } else {
         var strHTML = imgs.map(img => {
-            return `<img class="img" onclick="onImgSelect(${img.id})" src="${img.url}">`
+            return `<img class="img" onclick="onImgSelect(${img.id})" src="${img.url}">`;
         })
         strHTML = strHTML.join('');
 
@@ -16,13 +16,11 @@ function renderGallery(filterBy = 'ALL') {
 }
 
 function onImgSelect(imgId) {
-    // document.querySelector('.share').classList.add('hidden')
-    document.getElementById('share-btn').style.display='none'
-
-    resetMemeData()
-    setMemeImg(imgId)
-    renderImgMeme()
-    displayEditorPage()
+    document.getElementById('share-btn').style.display = 'none';
+    resetMemeData();
+    setMemeImg(imgId);
+    renderImgMeme();
+    displayEditorPage();
 }
 
 function renderSavedGallery() {
@@ -30,11 +28,11 @@ function renderSavedGallery() {
     var strHTML = '';
 
     if (!memes.length) {
-        strHTML = 'No saved meme'
+        strHTML = 'No saved meme';
     } else {
         var savedMemeIdx = 0;
         strHTML = memes.map(meme => {
-            return `<img class="img" onclick="onSavedMemeSelect(${savedMemeIdx++})" src="${meme.imgUrl}">`
+            return `<img class="img" onclick="onSavedMemeSelect(${savedMemeIdx++})" src="${meme.imgUrl}">`;
         })
         strHTML = strHTML.join('');
     }
@@ -52,6 +50,17 @@ function onSavedMemeSelect(savedMemeIdx) {
 }
 
 function onSearch() {
-    const filterBy = document.querySelector('.search-input').value.toLowerCase()
-    renderGallery(filterBy)
+    const filterBy = document.querySelector('.search-input').value.toLowerCase();
+    updateKeywords(filterBy);
+    renderGallery(filterBy);
+    renderKeywords();
+}
+
+function renderKeywords() {
+    const keywords = getKeywordSearchCountMap();
+    var strHTML = '';
+    for (var key in keywords){
+       strHTML+= `<li style="font-size: ${keywords[key]}px;">${key}</li>`;
+    }
+    document.querySelector('.keywords').innerHTML=strHTML;
 }

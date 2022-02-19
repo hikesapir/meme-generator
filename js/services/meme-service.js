@@ -97,16 +97,16 @@ function setSavedMeme(savedMeme) {
 }
 
 function getMeme() {
-    return gMeme
+    return gMeme;
 }
 
 function getCurrLine() {
     if (gMeme.selectedLineIdx < 0) return
-    return gMeme.lines[gMeme.selectedLineIdx]
+    return gMeme.lines[gMeme.selectedLineIdx];
 }
 
 function getMemeLines() {
-    return gMeme.lines
+    return gMeme.lines;
 }
 
 function createLine() {
@@ -115,7 +115,7 @@ function createLine() {
     } else {
         const currY = gMeme.lines[gMeme.lines.length - 1].y;
         var nextY = currY + 50;
-        if (nextY > gCanvas.clientHeight) nextY = 10
+        if (nextY > gCanvas.clientHeight) nextY = 10;
     }
     gMeme.lines.push({
         txt: 'Enter text',
@@ -128,17 +128,17 @@ function createLine() {
         y: nextY,
         isDrag: false
     })
-    gMeme.selectedLineIdx++
+    gMeme.selectedLineIdx++;
 }
 
 function removeLine() {
     const idxLine = gMeme.selectedLineIdx;
-    gMeme.lines.splice(idxLine, 1)
+    gMeme.lines.splice(idxLine, 1);
 }
 
 function switchLine(idx = -2) {
     if (idx === -2) {
-        const currIdxLine = gMeme.selectedLineIdx
+        const currIdxLine = gMeme.selectedLineIdx;
         const nextIdxLine = (currIdxLine + 1 < gMeme.lines.length) ? currIdxLine + 1 : 0;
         gMeme.selectedLineIdx = nextIdxLine;
     } else {

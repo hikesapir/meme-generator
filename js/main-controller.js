@@ -5,37 +5,39 @@ function onInit() {
     addListeners();
     init();
     renderGallery();
+    renderKeywords();
+
 }
 
 function onHomepage() {
+    renderKeywords();
     renderGallery();
     displayHomepage();
 }
 
 function onRendomMeme() {
-    resetMemeData()
+    resetMemeData();
     setRendomMeme();
-    renderImgMeme()
-    displayEditorPage()
+    renderImgMeme();
+    displayEditorPage();
 }
 
 function onDisplaySavedGallery() {
-    renderSavedGallery()
-    displayHomepage()
+    renderSavedGallery();
+    displayHomepage();
 }
 
 function displayHomepage() {
-    displayAboutBtn()
-    document.querySelector('.homepage').classList.remove('hidden')
-    document.querySelector('.meme-editor').classList.add('hidden')
+    displayAboutBtn();
+    document.querySelector('.homepage').classList.remove('hidden');
+    document.querySelector('.meme-editor').classList.add('hidden');
 }
 
 function displayEditorPage() {
-    hiddenAboutBtn()
-    document.querySelector('.homepage').classList.add('hidden')
-    document.querySelector('.meme-editor').classList.remove('hidden')
-    document.querySelector('.share').classList.add('hidden')
-
+    hiddenAboutBtn();
+    document.querySelector('.homepage').classList.add('hidden');
+    document.querySelector('.meme-editor').classList.remove('hidden');
+    document.querySelector('.share').classList.add('hidden');
 }
 
 function toggleMenu() {
@@ -43,14 +45,15 @@ function toggleMenu() {
 }
 
 function onImgInput(ev) {
-    loadImageFromInput(ev)
+    loadImageFromInput(ev);
 
 }
 
 function hiddenAboutBtn() {
-    document.querySelector('.about-btn').style.display = 'none'
+    document.querySelector('.about-btn').style.display = 'none';
 }
+
 function displayAboutBtn() {
-    document.querySelector('.about-btn').style.display = 'block'
+    document.querySelector('.about-btn').style.display = 'block';
 }
 

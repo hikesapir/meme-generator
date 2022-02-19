@@ -15,7 +15,7 @@ body{
     height: 1.5rem;
 }
 
-img:not(.logo){
+img:not(.logo,.search-icon){
     object-fit: cover;
     width: 100%;
     height: 100%;

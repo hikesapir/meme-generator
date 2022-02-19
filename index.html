@@ -33,7 +33,7 @@
             <div class="Search-bar">
                 <div class="Search-bar-layout main-layout flex">
                     <div class="buttom-line-decorition flex">
-                        <input class="search-input"  list="categories"  placeholder="Enter search keyword" oninput="onSearch()">
+                        <input class="search-input"  list="categories"  placeholder="Enter search keyword" onchange="onSearch()">
                         <datalist id="categories">
                             <option value="my-images">
                             <option value="movie">
@@ -51,7 +51,11 @@
                           </datalist>
                         <button class="search-submit" onclick="onSearch()"><img class="search-icon"
                                 src="imgs/design/search-icon.png" alt=""></button>
-                             
+                    </div>
+                           <div class="keywords-list">
+                        <ul class="keywords-list-layout keywords grid clean-list">
+                          
+                        </ul>
                     </div>
                 </div>
             </div>

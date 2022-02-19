@@ -1,36 +1,35 @@
 'use strict';
-const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
 
 function onDown(ev) {
-    ev.preventDefault()
-    const pos = getEvPos(ev)
-    const idx = getIdxLineBypos(pos)
-    switchLine(idx)
+    ev.preventDefault();
+    const pos = getEvPos(ev);
+    const idx = getIdxLineBypos(pos);
+    switchLine(idx);
     renderImgMeme();
     if (idx < 0) return
-    addKeydownListeners()
-    console.log();
-    setLineDrag(true)
-    document.querySelector('.canvas-container').style.cursor = 'grabbing'
-    renderTxtInput()
+    addKeydownListeners();
+    setLineDrag(true);
+    document.querySelector('.canvas-container').style.cursor = 'grabbing';
+    renderTxtInput();
 }
 
 function onMove(ev) {
-    const line = getCurrLine()
+    const line = getCurrLine();
     if (!line) return
     if (line.isDrag) {
-        const pos = getEvPos(ev)
-        const dx = pos.x - line.x
-        const dy = pos.y - line.y
-        moveLine(dx, dy, line)
-        renderImgMeme()
+        const pos = getEvPos(ev);
+        const dx = pos.x - line.x;
+        const dy = pos.y - line.y;
+        moveLine(dx, dy, line);
+        renderImgMeme();
     }
 }
 
 function onUp() {
-    setLineDrag(false)
-    document.querySelector('.canvas-container').style.cursor = 'grab'
+    setLineDrag(false);
+    document.querySelector('.canvas-container').style.cursor = 'grab';
 }
 
 function getEvPos(ev) {
@@ -60,26 +59,26 @@ function getIdxLineBypos(clickedPos) {
 }
 
 function setLineDrag(isDrag) {
-    const memeLine = getCurrLine()
-    memeLine.isDrag = isDrag
+    const memeLine = getCurrLine();
+    memeLine.isDrag = isDrag;
 }
 
 function moveLine(dx, dy, line) {
-    line.x += dx
-    line.y += dy
+    line.x += dx;
+    line.y += dy;
 }
 
 function addResizeListener() {
     window.addEventListener('resize', () => {
-        resizeCanvas(gCanvas)
-        renderImgMeme()
+        resizeCanvas(gCanvas);
+        renderImgMeme();
     })
 }
 
 function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
-    addResizeListener()
+    addMouseListeners();
+    addTouchListeners();
+    addResizeListener();
 }
 
 function addMouseListeners() {
@@ -89,26 +88,26 @@ function addMouseListeners() {
 }
 
 function addTouchListeners() {
-    gCanvas.addEventListener('touchmove', onMove)
-    gCanvas.addEventListener('touchstart', onDown)
-    gCanvas.addEventListener('touchend', onUp)
+    gCanvas.addEventListener('touchmove', onMove);
+    gCanvas.addEventListener('touchstart', onDown);
+    gCanvas.addEventListener('touchend', onUp);
 }
 
 function addKeydownListeners() {
-    document.addEventListener('keydown', onKeydown, false)
+    document.addEventListener('keydown', onKeydown, false);
 }
 
 function onKeydown(ev) {
-    ev.preventDefault()
+    ev.preventDefault();
     const lineText = getCurrLine().txt;
 
     if (ev.keyCode === 8) {
-        var txt = lineText.slice(0, -1)
+        var txt = lineText.slice(0, -1);
         onChangeTxt(txt);
         renderTxtInput();
     } else if ((ev.keyCode >= 48 && ev.keyCode <= 90)
-       || (ev.keyCode >= 96 && ev.keyCode <= 111)
-       || (ev.keyCode >= 187 && ev.keyCode <= 222)) {
+        || (ev.keyCode >= 96 && ev.keyCode <= 111)
+        || (ev.keyCode >= 187 && ev.keyCode <= 222)) {
         var txt = lineText + ev.key
         onChangeTxt(txt);
         renderTxtInput();

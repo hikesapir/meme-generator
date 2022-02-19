@@ -1,9 +1,25 @@
 'use strict';
 const STORAGE_KEY_images = 'imagesDB';
 
-// var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-var gImgs=[];
+var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 14 }
+var gImgs = [];
 var gImgId = 0;
+
+function updateKeywords(keyword) {
+    const keywords = getKeywordSearchCountMap();
+    for (var key in keywords) {
+        if (key === keyword) {
+            gKeywordSearchCountMap[key] += 2;
+            return
+        } else {
+            gKeywordSearchCountMap[keyword] = 10;
+        }
+    }
+}
+
+function getKeywordSearchCountMap() {
+    return gKeywordSearchCountMap;
+}
 
 function _createImgs() {
     gImgs = loadFromStorage(STORAGE_KEY_images);
@@ -45,14 +61,14 @@ function _createImgs() {
 
 function _createImg(keywords, imgUrl = 0) {
     if (!gImgs) {
-        var imgId = gImgId++
-    } else imgId = gImgs[gImgs.length - 1].id + 1
+        var imgId = gImgId++;
+    } else imgId = gImgs[gImgs.length - 1].id + 1;
     const image = {
         id: imgId,
         url: `imgs/meme-imgs/${imgId}.jpg`,
         keywords
     }
-    if (imgUrl!==0) image.url = imgUrl
+    if (imgUrl !== 0) image.url = imgUrl;
 
     return image
 }
@@ -65,13 +81,12 @@ function getImgs(filterBy) {
 }
 
 function getImgById(id) {
-    return gImgs[id]
+    return gImgs[id];
 }
 
-function addImage(keywords, imgUrl=0) {
-    const image = _createImg(keywords, imgUrl)
-    console.log(image);
-    gImgs.push(image)
+function addImage(keywords, imgUrl = 0) {
+    const image = _createImg(keywords, imgUrl);
+    gImgs.push(image);
     saveToStorage(STORAGE_KEY_images, gImgs);
 }
 
@@ -81,15 +96,10 @@ function loadImageFromInput(ev) {
     reader.onload = function (event) {
         var img = new Image()
         // Render on canvas
-        // img.onload = onImageReady.bind(null, img)
         img.src = event.target.result
-        console.log(img.src);
         addImage('my-images', img.src)
-        var imgId = gImgs.length-1
+        var imgId = gImgs.length - 1
         onImgSelect(imgId);
-
-
     }
-    // console.log('after');
     reader.readAsDataURL(ev.target.files[0])
 }
