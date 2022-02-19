@@ -9,13 +9,24 @@ function onDown(ev) {
     switchLine(idx);
     renderImgMeme();
     if (idx < 0) return
+    document.querySelector('.canvas-container').style.cursor = 'grabbing';
     addKeydownListeners();
     setLineDrag(true);
-    document.querySelector('.canvas-container').style.cursor = 'grabbing';
     renderTxtInput();
 }
 
 function onMove(ev) {
+    const pos = getEvPos(ev);
+    if (isOnLine(pos)) {
+        const line = getCurrLine();
+        if (line.isDrag) {
+            document.querySelector('.canvas-container').style.cursor = 'grabbing';
+        } else {
+            document.querySelector('.canvas-container').style.cursor = 'text';
+        }
+    } else {
+        document.querySelector('.canvas-container').style.cursor = 'default';
+    }
     const line = getCurrLine();
     if (!line) return
     if (line.isDrag) {
@@ -55,6 +66,17 @@ function getIdxLineBypos(clickedPos) {
         var yStart = memeLine.y;
         var yEnd = memeLine.y - memeLine.size;
         return (clickedPos.x <= xEnd && clickedPos.x >= xStart && clickedPos.y <= yStart && clickedPos.y >= yEnd)
+    })
+}
+
+function isOnLine(mousePos) {
+    const memeLines = getMemeLines();
+    return memeLines.some(memeLine => {
+        var xStart = memeLine.x;
+        var xEnd = gCtx.measureText(memeLine.txt).width + memeLine.x;
+        var yStart = memeLine.y;
+        var yEnd = memeLine.y - memeLine.size;
+        return (mousePos.x <= xEnd && mousePos.x >= xStart && mousePos.y <= yStart && mousePos.y >= yEnd)
     })
 }
 
@@ -107,7 +129,8 @@ function onKeydown(ev) {
         renderTxtInput();
     } else if ((ev.keyCode >= 48 && ev.keyCode <= 90)
         || (ev.keyCode >= 96 && ev.keyCode <= 111)
-        || (ev.keyCode >= 187 && ev.keyCode <= 222)) {
+        || (ev.keyCode >= 187 && ev.keyCode <= 222)
+        || ev.keyCode === 32) {
         var txt = lineText + ev.key
         onChangeTxt(txt);
         renderTxtInput();
