@@ -49,8 +49,11 @@ function onSavedMemeSelect(savedMemeIdx) {
     displayEditorPage();
 }
 
-function onSearch() {
-    const filterBy = document.querySelector('.search-input').value.toLowerCase();
+function onSearch(val = 0) {
+    var filterBy = val
+    if (val === 0) {
+        filterBy = document.querySelector('.search-input').value.toLowerCase();
+    }
     updateKeywords(filterBy);
     renderGallery(filterBy);
     renderKeywords();
@@ -59,8 +62,8 @@ function onSearch() {
 function renderKeywords() {
     const keywords = getKeywordSearchCountMap();
     var strHTML = '';
-    for (var key in keywords){
-       strHTML+= `<li style="font-size: ${keywords[key]}px;">${key}</li>`;
+    for (var key in keywords) {
+        strHTML += `<li style="font-size: ${keywords[key]}px;" onclick="onSearch('${key}')">${key}</li>`;
     }
-    document.querySelector('.keywords').innerHTML=strHTML;
+    document.querySelector('.keywords').innerHTML = strHTML;
 }
