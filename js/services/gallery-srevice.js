@@ -99,7 +99,7 @@ function loadImageFromInput(ev) {
         var img = new Image()
         // Render on canvas
         img.src = event.target.result
-        addImage('my-images', img.src)
+        addImage(['my-images'], img.src)
         var imgId = gImgs.length - 1
         onImgSelect(imgId);
     }
