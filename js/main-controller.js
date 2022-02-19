@@ -54,6 +54,6 @@ function hiddenAboutBtn() {
 }
 
 function displayAboutBtn() {
-    document.querySelector('.about-btn').style.display = 'block';
+    document.querySelector('.about-btn').style.display = 'flex';
 }
 

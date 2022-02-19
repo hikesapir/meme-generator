@@ -11,10 +11,12 @@ function updateKeywords(keyword) {
         if (key === keyword) {
             gKeywordSearchCountMap[key] += 2;
             return
-        } else {
-            gKeywordSearchCountMap[keyword] = 10;
-        }
+        } 
     }
+    
+    gKeywordSearchCountMap[keyword] = 10;
+
+
 }
 
 function getKeywordSearchCountMap() {

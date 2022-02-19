@@ -55,6 +55,7 @@ function onSearch(val = 0) {
         filterBy = document.querySelector('.search-input').value.toLowerCase();
     }
     updateKeywords(filterBy);
+    console.log(gKeywordSearchCountMap);
     renderGallery(filterBy);
     renderKeywords();
 }
@@ -63,7 +64,8 @@ function renderKeywords() {
     const keywords = getKeywordSearchCountMap();
     var strHTML = '';
     for (var key in keywords) {
-        strHTML += `<li style="font-size: ${keywords[key]}px;" onclick="onSearch('${key}')">${key}</li>`;
+        strHTML += `<li class="keyword" style="font-size: ${keywords[key]}px;" onclick="onSearch('${key}')">${key}</li>`;
     }
     document.querySelector('.keywords').innerHTML = strHTML;
 }
+
