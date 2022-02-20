@@ -94,10 +94,8 @@ function getEvPos(ev) {
 
 function getIdxLineBypos(clickedPos) {
     const memeLines = getMemeLines();
-    console.log(clickedPos);
     return memeLines.findIndex(memeLine => {
         const lineArea = getLineArea(memeLine)
-        console.log(lineArea);
         var xStart = lineArea.x;
         var xEnd =lineArea.xEnd;
         var yStart = lineArea.y;

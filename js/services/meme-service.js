@@ -101,7 +101,6 @@ function getMeme() {
 }
 
 function getCurrLine() {
-    console.log(gMeme.selectedLineIdx);
     if (gMeme.selectedLineIdx < 0) return
     return gMeme.lines[gMeme.selectedLineIdx];
 }

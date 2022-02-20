@@ -74,7 +74,6 @@ function onChangeTextAlign(val) {
 }
 
 function renderTxtInput() {
-    console.log("work");
     if (!getCurrLine()) {
         document.querySelector('.text-input').value = '';
     }

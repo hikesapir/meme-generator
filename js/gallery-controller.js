@@ -56,7 +56,6 @@ function onSearch(val = 0) {
     }
     updateKeywords(filterBy);
     document.querySelector('.search-input').value = filterBy;
-    console.log(gKeywordSearchCountMap);
     renderGallery(filterBy);
     renderKeywords();
 }
