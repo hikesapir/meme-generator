@@ -50,14 +50,21 @@ function onSavedMemeSelect(savedMemeIdx) {
 }
 
 function onSearch(val = 0) {
+
     var filterBy = val
     if (val === 0) {
         filterBy = document.querySelector('.search-input').value.toLowerCase();
     }
     updateKeywords(filterBy);
+    document.querySelector('.search-input').value = filterBy;
     console.log(gKeywordSearchCountMap);
     renderGallery(filterBy);
     renderKeywords();
+}
+
+function onSubmit(ev) {
+    ev.preventDefault();
+    onSearch();
 }
 
 function renderKeywords() {

@@ -1,7 +1,7 @@
 'use strict';
 const STORAGE_KEY_images = 'imagesDB';
 
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 14 }
+var gKeywordSearchCountMap = { 'funny': 12, 'cat': 24, 'baby': 18 }
 var gImgs = [];
 var gImgId = 0;
 
@@ -78,7 +78,7 @@ function _createImg(keywords, imgUrl = 0) {
 function getImgs(filterBy) {
     if (filterBy === 'ALL') return gImgs;
     return gImgs.filter(img =>
-        img.keywords.some(keyword => keyword === filterBy)
+        img.keywords.some(keyword => keyword.includes(filterBy) )
     )
 }
 

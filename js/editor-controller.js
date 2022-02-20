@@ -4,6 +4,7 @@ function renderImgMeme() {
     const meme = getMeme();
     const img = getImgById(meme.selectedImgId);
     drawImgFromlocal(img.url);
+    renderTxtInput();
 }
 
 function drawImgFromlocal(urlImg) {
@@ -73,6 +74,10 @@ function onChangeTextAlign(val) {
 }
 
 function renderTxtInput() {
+    console.log("work");
+    if (!getCurrLine()) {
+        document.querySelector('.text-input').value = '';
+    }
     document.querySelector('.text-input').value = getCurrLine().txt;
 }
 
@@ -117,29 +122,29 @@ function onAddLine() {
     createLine();
     if (gMeme.selectedLineIdx < 0 || gMeme.lines.length < 0) switchLine(0);
     renderImgMeme();
-    renderTxtInput();
+    document.querySelector('.text-input').select();
 }
 
 function onRemaveLine() {
+    // if (gMeme.selectedLineIdx < 0 || gMeme.lines.length < 0) switchLine(0);
     removeLine();
     renderImgMeme();
-    // renderTxtInput();
 }
 
 function onSwitchLine() {
     switchLine();
-    renderTxtInput();
     renderImgMeme();
 }
 
 function onAddSticker(icon) {
     createLine();
     setLineTxt(icon);
-    renderTxtInput();
     renderImgMeme();
 }
 
 function onSaveMeme() {
+    switchLine(-1);
+    renderImgMeme();
     const imgurl = getMemeImgUrl()
     uploadImg(imgurl);
     flashMsg('Meme saved');

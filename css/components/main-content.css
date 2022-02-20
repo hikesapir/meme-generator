@@ -5,6 +5,7 @@
 
 /* main content */
 .main-content{
+    min-height: calc(100vh - 200px);
     background-color: var(--clr3);
 }
 
@@ -49,6 +50,7 @@
 
 .keyword{
     cursor: pointer;
+    margin: auto 0;
 }
 
 /* gallery container */

@@ -23,11 +23,13 @@ function onRendomMeme() {
 }
 
 function onDisplaySavedGallery() {
+    removeKeydownListeners();
     renderSavedGallery();
     displayHomepage();
 }
 
 function displayHomepage() {
+    removeKeydownListeners();
     displayAboutBtn();
     document.querySelector('.homepage').classList.remove('hidden');
     document.querySelector('.meme-editor').classList.add('hidden');

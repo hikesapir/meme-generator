@@ -1,6 +1,38 @@
 'use strict';
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
+function addListeners() {
+    addMouseListeners();
+    addTouchListeners();
+    addResizeListener();
+}
+
+function addResizeListener() {
+    window.addEventListener('resize', () => {
+        resizeCanvas(gCanvas);
+        renderImgMeme();
+    })
+}
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousemove', onMove);
+    gCanvas.addEventListener('mousedown', onDown);
+    // gCanvas.addEventListener('mouseup', onUp);
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchmove', onMove);
+    gCanvas.addEventListener('touchstart', onDown);
+    gCanvas.addEventListener('touchend', onUp);
+}
+
+function addKeydownListeners() {
+    document.addEventListener('keydown', onKeydown);
+}
+
+function removeKeydownListeners(){
+    document.removeEventListener('keydown', onKeydown);
+}
 
 function onDown(ev) {
     ev.preventDefault();
@@ -13,6 +45,8 @@ function onDown(ev) {
     addKeydownListeners();
     setLineDrag(true);
     renderTxtInput();
+    gCanvas.addEventListener('mouseup', onUp);
+
 }
 
 function onMove(ev) {
@@ -60,23 +94,27 @@ function getEvPos(ev) {
 
 function getIdxLineBypos(clickedPos) {
     const memeLines = getMemeLines();
+    console.log(clickedPos);
     return memeLines.findIndex(memeLine => {
-        var xStart = memeLine.x;
-        var xEnd = gCtx.measureText(memeLine.txt).width + memeLine.x;
-        var yStart = memeLine.y;
-        var yEnd = memeLine.y - memeLine.size;
-        return (clickedPos.x <= xEnd && clickedPos.x >= xStart && clickedPos.y <= yStart && clickedPos.y >= yEnd)
+        const lineArea = getLineArea(memeLine)
+        console.log(lineArea);
+        var xStart = lineArea.x;
+        var xEnd =lineArea.xEnd;
+        var yStart = lineArea.y;
+        var yEnd = lineArea.yEnd;
+        return (clickedPos.x <= xEnd && clickedPos.x >= xStart && clickedPos.y >= yStart && clickedPos.y <= yEnd)
     })
 }
 
 function isOnLine(mousePos) {
     const memeLines = getMemeLines();
     return memeLines.some(memeLine => {
-        var xStart = memeLine.x;
-        var xEnd = gCtx.measureText(memeLine.txt).width + memeLine.x;
-        var yStart = memeLine.y;
-        var yEnd = memeLine.y - memeLine.size;
-        return (mousePos.x <= xEnd && mousePos.x >= xStart && mousePos.y <= yStart && mousePos.y >= yEnd)
+        const lineArea = getLineArea(memeLine)
+        var xStart = lineArea.x;
+        var xEnd =lineArea.xEnd;
+        var yStart = lineArea.y;
+        var yEnd = lineArea.yEnd;
+        return (mousePos.x <= xEnd && mousePos.x >= xStart && mousePos.y >= yStart && mousePos.y <= yEnd)
     })
 }
 
@@ -88,35 +126,6 @@ function setLineDrag(isDrag) {
 function moveLine(dx, dy, line) {
     line.x += dx;
     line.y += dy;
-}
-
-function addResizeListener() {
-    window.addEventListener('resize', () => {
-        resizeCanvas(gCanvas);
-        renderImgMeme();
-    })
-}
-
-function addListeners() {
-    addMouseListeners();
-    addTouchListeners();
-    addResizeListener();
-}
-
-function addMouseListeners() {
-    gCanvas.addEventListener('mousemove', onMove);
-    gCanvas.addEventListener('mousedown', onDown);
-    gCanvas.addEventListener('mouseup', onUp);
-}
-
-function addTouchListeners() {
-    gCanvas.addEventListener('touchmove', onMove);
-    gCanvas.addEventListener('touchstart', onDown);
-    gCanvas.addEventListener('touchend', onUp);
-}
-
-function addKeydownListeners() {
-    document.addEventListener('keydown', onKeydown, false);
 }
 
 function onKeydown(ev) {

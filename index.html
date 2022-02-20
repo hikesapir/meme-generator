@@ -32,8 +32,8 @@
         <section class="homepage ">
             <div class="Search-bar">
                 <div class="Search-bar-layout main-layout flex">
-                    <div class="buttom-line-decorition flex">
-                        <input class="search-input"  list="categories"  placeholder="Enter search keyword" onchange="onSearch()">
+                    <form onsubmit="onSubmit(event);"  class="buttom-line-decorition flex">
+                        <input class="search-input" list="categories" placeholder="Enter search keyword">
                         <datalist id="categories">
                             <option value="my-images">
                             <option value="movie">
@@ -48,13 +48,13 @@
                             <option value="dog">
                             <option value="putin">
                             <option value="president">
-                          </datalist>
-                        <button class="search-submit" onclick="onSearch()"><img class="search-icon"
+                        </datalist>
+                        <button class="search-submit" type="submit"><img class="search-icon"
                                 src="imgs/design/search-icon.png" alt=""></button>
-                    </div>
-                           <div class="keywords-list">
+                    </form>
+                    <div class="keywords-list">
                         <ul class="keywords-list-layout keywords grid clean-list">
-                          
+
                         </ul>
                     </div>
                 </div>
@@ -70,9 +70,9 @@
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, quia illo voluptatibus
                         aspernatur blanditiis rerum sapiente totam quod!
                         </p>
-                        <a href="#"><img src="imgs/design/linkedin-logo.png" ></a>
-                        <a href="#"><img src="imgs/design/facebook-logo.png" ></a>
-                        <a href="#"><img src="imgs/design/github-logo.png" ></a>
+                        <a href="#"><img src="imgs/design/linkedin-logo.png"></a>
+                        <a href="#"><img src="imgs/design/facebook-logo.png"></a>
+                        <a href="#"><img src="imgs/design/github-logo.png"></a>
                     </div>
                 </div>
             </div>
@@ -82,52 +82,58 @@
                 <canvas id="canvas" height="400" width="400" style="border: 1px solid black;"></canvas>
             </div>
             <div class="grid-container">
-            <div class="actions-layout grid">
-                <input class="text-input" type="text" oninput="onChangeTxt(this.value)" value="Enter text">
-               <button class="color-fill">
-                <label for="color-fill"><img src="imgs/design/paint-board-and-brush.png"></label>
-               </button> 
-                <input class="color hidden" id="color-fill" type="color" oninput="onTxtColor(this.value)">
-                <button class="color-border">
-                    <label for="color-border"><img src="imgs/design/text stroke.png"></label>
-                   </button> 
-                <input class="color hidden" id="color-border" type="color" oninput="onTxtStrokeColor(this.value)">
-                <button class="add-line" onclick="onAddLine()"><img src="imgs/design/add.png"></button>
-                <button class="delete" onclick="onRemaveLine()"><img src="imgs/design/trash.png" alt=""></button>
-                <button class="switch" onclick="onSwitchLine()"><img
-                        src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-                <button class="increase" onclick="onSetFontSize(+2)"><img
-                        src="imgs/design/increase font - icon.png"></button>
-                <button class="decrease" onclick="onSetFontSize(-2)"><img
-                        src="imgs/design/decrease font - icon.png"></button>
-                <button class="align-left" onclick="onChangeTextAlign('left')"><img src="imgs/design/align-to-left.png"></button>
-                <button class="align-center" onclick="onChangeTextAlign('center')"><img src="imgs/design/center-text-alignment.png"></button>
-                <button class="align-right" onclick="onChangeTextAlign('right')"><img src="imgs/design/align-to-right.png"></button>
-                <select class="font-family" name="font-family" id="font-family" onchange="onselectedfont(this.value)">
-                    <option value="Impact">Impact</option>
-                    <option value="Verdana">Verdana</option>
-                    <option value="Arial">Arial</option>
-                </select>
-                <div class="icons">
-                    <ul class="icons-layout clean-list grid">
-                        <li class="icon" onclick="onAddSticker(this.innerText)">💣</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">🤯</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">💖</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">🌭</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">🧁</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">🎊</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">🎈</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">🎁</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">👃</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">👂</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">😃</li>
-                        <li class="icon" onclick="onAddSticker(this.innerText)">😭</li>
-                    </ul>
+                <div class="actions-layout grid">
+                    <input class="text-input" type="text" oninput="onChangeTxt(this.value)" value="Enter text">
+                    <button class="color-fill">
+                        <label for="color-fill"><img src="imgs/design/paint-board-and-brush.png"></label>
+                    </button>
+                    <input class="color hidden-input" id="color-fill" type="color" oninput="onTxtColor(this.value)">
+                    <button class="color-border">
+                        <label for="color-border"><img src="imgs/design/text stroke.png"></label>
+                    </button>
+                    <input class="color hidden-input hidden" id="color-border" type="color"
+                        oninput="onTxtStrokeColor(this.value)">
+                    <button class="add-line" onclick="onAddLine()"><img src="imgs/design/add.png"></button>
+                    <button class="delete" onclick="onRemaveLine()"><img src="imgs/design/trash.png" alt=""></button>
+                    <button class="switch" onclick="onSwitchLine()"><img
+                            src="imgs/design/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                    <button class="increase" onclick="onSetFontSize(+2)"><img
+                            src="imgs/design/increase font - icon.png"></button>
+                    <button class="decrease" onclick="onSetFontSize(-2)"><img
+                            src="imgs/design/decrease font - icon.png"></button>
+                    <button class="align-left" onclick="onChangeTextAlign('left')"><img
+                            src="imgs/design/align-to-left.png"></button>
+                    <button class="align-center" onclick="onChangeTextAlign('center')"><img
+                            src="imgs/design/center-text-alignment.png"></button>
+                    <button class="align-right" onclick="onChangeTextAlign('right')"><img
+                            src="imgs/design/align-to-right.png"></button>
+                    <select class="font-family" name="font-family" id="font-family"
+                        onchange="onselectedfont(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Arial">Arial</option>
+                    </select>
+                    <div class="icons">
+                        <ul class="icons-layout clean-list grid">
+                            <li class="icon" onclick="onAddSticker(this.innerText)">💣</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">🤯</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">💖</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">🌭</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">🧁</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">🎊</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">🎈</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">🎁</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">👃</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">👂</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">😃</li>
+                            <li class="icon" onclick="onAddSticker(this.innerText)">😭</li>
+                        </ul>
+                    </div>
+                    <button id="share-btn" class="share " hidden>share</button>
+                    <button class="save" onclick="onSaveMeme()">save</button>
+                    <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg"><img
+                            src="imgs/design/download.png"></a>
                 </div>
-                <button id="share-btn" class="share " hidden>share</button>
-                <button class="save" onclick="onSaveMeme()">save</button>
-                <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg"><img src="imgs/design/download.png"></a>
-            </div>
             </div>
             <div class="user-msg"></div>
         </section>
@@ -143,10 +149,10 @@
 
     <script src="js/services/util-service.js"></script>
     <script src="js/services/storage-service.js"></script>
-    <script src="js/services/event-listener-srevice.js"></script>
+    <script src="js/services/event-listener-service.js"></script>
     <script src="js/services/meme-service.js"></script>
-    <script src="js/services/editor-srevice.js"></script>
-    <script src="js/services/gallery-srevice.js"></script>
+    <script src="js/services/editor-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
     <script src="js/editor-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/main-controller.js"></script>

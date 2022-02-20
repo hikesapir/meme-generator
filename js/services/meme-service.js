@@ -101,6 +101,7 @@ function getMeme() {
 }
 
 function getCurrLine() {
+    console.log(gMeme.selectedLineIdx);
     if (gMeme.selectedLineIdx < 0) return
     return gMeme.lines[gMeme.selectedLineIdx];
 }
@@ -149,10 +150,38 @@ function switchLine(idx = -2) {
 function getMarker() {
     if (gMeme.selectedLineIdx < 0 || gMeme.lines.length < 0) return;
     var line = getMemeLines()[gMeme.selectedLineIdx];
-    return {
-        x: 2,
-        y: line.y - line.size - 1,
-        width: gCanvas.width - 4,
-        height: line.size + 5,
-    };
-} 
+    return getLineArea(line)
+}
+
+function getLineArea(line) {
+    const width = gCtx.measureText(line.txt).width;
+    if (line.align === 'left') {
+        return {
+            x: line.x - 1,
+            y: line.y - line.size - 1,
+            xEnd: line.x + width,
+            yEnd: line.y + line.size,
+            width: width + 5,
+            height: line.size + 5,
+        };
+    } else if (line.align === 'center') {
+        return {
+            x: line.x - ((width / 2)) - 1,
+            y: line.y - line.size - 1,
+            xEnd: line.x + ((width / 2)),
+            yEnd: line.y + line.size,
+            width: width + 5,
+            height: line.size + 1,
+        };
+    } else {
+        return {
+            x: line.x - width - 11,
+            y: line.y - line.size - 1,
+            xEnd: line.x,
+            yEnd: line.y + line.size,
+            width: width + 5,
+            height: line.size + 5,
+        };
+    }
+
+}
